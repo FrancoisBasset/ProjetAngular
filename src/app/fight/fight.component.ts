@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon, Attack } from 'src/logic/models';
 import { AttackServices, GameServices } from 'src/logic/services';
 import SpeedServices from 'src/logic/services/SpeedServices';
@@ -9,8 +9,8 @@ import SpeedServices from 'src/logic/services/SpeedServices';
   styleUrls: ['./fight.component.scss']
 })
 export class FightComponent implements OnInit {
-  pikachu: Pokemon
-  ditto: Pokemon
+  @Input() pokemonA: Pokemon
+  @Input() pokemonB: Pokemon
   game: GameServices
 
   dispLines: string[] = []
@@ -18,17 +18,12 @@ export class FightComponent implements OnInit {
   constructor() {
   }
 
-  sleepFor(sleepDuration: number): void {
-    let now = new Date().getTime();
-    while(new Date().getTime() < now + sleepDuration);
-  }
-
   addLine(str: string): void {
     this.dispLines.push(str);
   }
 
   ngOnInit(): void {
-    this.pikachu = new Pokemon(
+    this.pokemonA = new Pokemon(
       'Pikachu',
       70,
       90,
@@ -45,7 +40,7 @@ export class FightComponent implements OnInit {
       []
     )
   
-    this.ditto = new Pokemon(
+    this.pokemonB = new Pokemon(
       'Ditto',
       1,
       48,
@@ -62,7 +57,7 @@ export class FightComponent implements OnInit {
       []
     )
   
-    this.game = new GameServices(this.addLine.bind(this), this.pikachu, this.ditto, new AttackServices(), new SpeedServices())
+    this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices())
     this.game.play()
   }
 

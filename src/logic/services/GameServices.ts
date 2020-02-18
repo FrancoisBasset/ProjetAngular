@@ -3,7 +3,7 @@ import AttackServices from "./AttackServices";
 import SpeedServices from './SpeedServices';
 
 export default class GameServices {
-    intervalId: NodeJS.Timeout;
+    intervalId: any;
     fastestToAttack = true;
 
     constructor(
@@ -35,6 +35,6 @@ export default class GameServices {
     }
 
     public play () {
-        this.intervalId = setInterval(this.demiRound, 1000);
+        this.intervalId = setInterval(this.demiRound.bind(this), 1000);
     }
 }

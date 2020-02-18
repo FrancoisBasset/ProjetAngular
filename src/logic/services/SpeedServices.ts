@@ -33,7 +33,7 @@ export default class SpeedServices {
         return speed;
     }
 
-    public  getFastest(a: Pokemon, b: Pokemon) {
+    public getFastest(a: Pokemon, b: Pokemon): Pokemon {
         let speedA = this.getCalculatedSpeed(a)
         let speedB = this.getCalculatedSpeed(b)
         if ( speedA === speedB ) {
