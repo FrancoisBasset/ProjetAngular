@@ -5,7 +5,10 @@
     "arrow-parens": false,
     "deprecation": {
       "severity": "warning"
-    },
+	},
+	"compilerOptions": {
+		"types": ["jest"]
+	},
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
