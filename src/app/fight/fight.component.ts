@@ -36,7 +36,7 @@ export class FightComponent implements OnInit, OnDestroy {
     if (this.on) {
 	  this.on = false;
 	  this.label = 'Start';
-	  clearInterval(this.game.intervalId);
+	  this.game.pause();
     } else {
       this.on = true;	  
 	  this.label = 'Stop';
@@ -45,6 +45,6 @@ export class FightComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.game.intervalId);
+    this.game.pause();
   }
 }
