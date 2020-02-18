@@ -37,4 +37,8 @@ export default class GameServices {
     public play () {
         this.intervalId = setInterval(this.demiRound.bind(this), 1000);
     }
+
+    public pause () {
+        clearInterval(this.intervalId);
+    }
 }
