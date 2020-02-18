@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Pokemon, Attack } from 'src/logic/models';
 import { AttackServices, GameServices } from 'src/logic/services';
 import SpeedServices from 'src/logic/services/SpeedServices';
@@ -8,7 +8,7 @@ import SpeedServices from 'src/logic/services/SpeedServices';
   templateUrl: './fight.component.html',
   styleUrls: ['./fight.component.scss']
 })
-export class FightComponent implements OnInit {
+export class FightComponent implements OnInit, OnDestroy {
   @Input() pokemonA: Pokemon
   @Input() pokemonB: Pokemon
   game: GameServices
@@ -60,19 +60,21 @@ export class FightComponent implements OnInit {
     )
   
     this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices())
-    //this.game.play()
   }
 
   onClick(): void {
-	if (this.on) {
-		this.on = false;
-		this.label = 'Stop';
-		this.game.play()
-	} else {
-		this.on = true;
-		this.label = 'Start';
-		clearInterval(this.game.intervalId);
-	}
-}
+    if (this.on) {
+      this.on = false;
+      this.label = 'Stop';
+      this.game.play()
+    } else {
+      this.on = true;
+      this.label = 'Start';
+      clearInterval(this.game.intervalId);
+    }
+  }
 
+  ngOnDestroy(): void {
+    clearInterval(this.game.intervalId);
+  }
 }
