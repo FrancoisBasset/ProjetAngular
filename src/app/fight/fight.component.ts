@@ -70,11 +70,11 @@ export class FightComponent implements OnInit, OnDestroy {
     } else {
       this.on = true;
       this.label = 'Start';
-      clearInterval(this.game.intervalId);
+      this.game.pause();
     }
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.game.intervalId);
+    this.game.pause();
   }
 }
