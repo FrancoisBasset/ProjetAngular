@@ -12,6 +12,8 @@ export class FightComponent implements OnInit {
   @Input() pokemonA: Pokemon
   @Input() pokemonB: Pokemon
   game: GameServices
+  on: boolean = false;
+  label: string = 'Start';
 
   dispLines: string[] = []
 
@@ -58,7 +60,19 @@ export class FightComponent implements OnInit {
     )
   
     this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices())
-    this.game.play()
+    //this.game.play()
   }
+
+  onClick(): void {
+	if (this.on) {
+		this.on = false;
+		this.label = 'Stop';
+		this.game.play()
+	} else {
+		this.on = true;
+		this.label = 'Start';
+		clearInterval(this.game.intervalId);
+	}
+}
 
 }
