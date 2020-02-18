@@ -26,7 +26,8 @@ describe('AttackServices logic service', () => {
         new Attack('Rugissement', 1)
       ],
       [],
-      []
+      [],
+      'yellow'
     )
     
     ditto = new Pokemon(
@@ -43,7 +44,8 @@ describe('AttackServices logic service', () => {
         deflagration
       ],
       [],
-      []
+      [],
+      'pink'
     )
 
     attackServices = new AttackServices();

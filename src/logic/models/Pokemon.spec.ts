@@ -22,7 +22,8 @@ describe('Pokemon logic model', () => {
           new Attack('Rugissement', 1)
         ],
         [],
-        []
+        [],
+        'yellow'
       )
 
       MathRandom = Math.random;
