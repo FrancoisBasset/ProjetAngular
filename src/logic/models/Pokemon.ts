@@ -15,7 +15,8 @@ export default class Pokemon {
         public maxHealth: number,
         public attacks: Attack[],
         public abilities: Ability[],
-        public items: Item[]
+		public items: Item[],
+		public color: string
     )
     {
         this.health = maxHealth

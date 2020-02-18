@@ -1,5 +1,10 @@
-<button (click)="onClick()">{{label}}</button>
+<img src="../../assets/images/pokemon/{{game.pokemonA.name}}.png" alt="Pokemon A" width="200px">
+<img src="../../assets/images/shared/VS.png" alt="Pokemon B" width="100px" style="padding-left: 50px; padding-right: 50px;">
+<img src="../../assets/images/pokemon/{{game.pokemonB.name}}.png" alt="Pokemon B" width="200px">
+<br>
+
+<button (click)="onClick()" style="width: 600px; margin-top: 30px;">{{label}}</button>
 
 <div *ngFor="let line of dispLines">
-    {{line}}
+	{{line}}
 </div>

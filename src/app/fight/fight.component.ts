@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Pokemon, Attack } from 'src/logic/models';
+import { Pokemon } from 'src/logic/models';
 import { AttackServices, GameServices } from 'src/logic/services';
 import SpeedServices from 'src/logic/services/SpeedServices';
+import { pokemonA, pokemonB } from '../../pokemons';
 
 @Component({
   selector: 'app-fight',
@@ -17,60 +18,29 @@ export class FightComponent implements OnInit, OnDestroy {
 
   dispLines: string[] = []
 
-  constructor() {
-  }
+  constructor() { }
 
   addLine(str: string): void {
-    this.dispLines.push(str);
+	this.dispLines.push(str);
   }
 
   ngOnInit(): void {
-    this.pokemonA = new Pokemon(
-      'Pikachu',
-      70,
-      90,
-      55,
-      40,
-      30,
-      [
-        new Attack('Eclair', 40),
-        new Attack('Charge', 5),
-        new Attack('Tonnerre', 60),
-        new Attack('Rugissement', 1)
-      ],
-      [],
-      []
-    )
-  
-    this.pokemonB = new Pokemon(
-      'Ditto',
-      1,
-      48,
-      48,
-      48,
-      48,
-      [
-          new Attack('Charge', 5),
-          new Attack('Flammèche', 25),
-          new Attack('Lèchouille', 75),
-          new Attack('Déflagration', 40)
-      ],
-      [],
-      []
-    )
+    this.pokemonA = pokemonA;
+    this.pokemonB = pokemonB;
   
     this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices())
   }
 
   onClick(): void {
+
     if (this.on) {
-      this.on = false;
-      this.label = 'Stop';
-      this.game.play()
+	  this.on = false;
+	  this.label = 'Start';
+	  clearInterval(this.game.intervalId);
     } else {
-      this.on = true;
-      this.label = 'Start';
-      clearInterval(this.game.intervalId);
+      this.on = true;	  
+	  this.label = 'Stop';
+      this.game.play()
     }
   }
 
