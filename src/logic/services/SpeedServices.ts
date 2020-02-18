@@ -12,24 +12,21 @@ export default class SpeedServices {
         Item.PowerWeight
     ]
 
-    private getCalculatedSpeed(pokemon: Pokemon): number {
+    public getCalculatedSpeed(pokemon: Pokemon): number {
         let speed = pokemon.speed;
-        if ( Item.ChoiceScarf in pokemon.items ) {
+        if ( pokemon.hasItem(Item.ChoiceScarf) ) {
 			speed *= 1.5;
         }
-        if ( Item.QuickPowder in pokemon.items ) {
+        if ( pokemon.hasItem(Item.QuickPowder) ) {
 			speed *= 2;
         }
-        if ( pokemon.paralyzed && !(Ability.QuickFeet in pokemon.abilities) ) {
+        if ( pokemon.paralyzed && !(pokemon.hasAbility(Ability.QuickFeet)) ) {
 			speed /= 2;
         }
-        const nbSlowItems = this.slowItems.filter(i => i in pokemon.items).length
-        if ( nbSlowItems ) {
-            speed /= nbSlowItems * 2;
+
+        for ( const _ of this.slowItems.filter(i => pokemon.hasItem(i)) ) {
+            speed /= 2;
         }
-        if ( Item.QuickPowder in pokemon.items ) {
-			speed *= 2;
-		}
         return speed;
     }
 

@@ -1,6 +1,4 @@
-import { Attack } from '.'
-import { Ability } from './Ability';
-import { Item } from './Item';
+import { Attack, Ability, Item } from '.';
 
 export default class Pokemon {
     health: number
@@ -30,5 +28,13 @@ export default class Pokemon {
 
     public getRandomAttack (): Attack {
         return this.attacks[Math.floor(Math.random() * 100) % this.attacks.length]
+    }
+
+    public hasItem(item: Item) {
+        return this.items.includes(item);
+    }
+
+    public hasAbility(ability: Ability) {
+        return this.abilities.includes(ability);
     }
 }
