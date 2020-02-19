@@ -1,0 +1,25 @@
+#row {
+	text-align:center;
+}
+
+#pokemonLogo {
+	width: 50%;
+	margin-top: 5%;
+}
+
+#playButton {
+	cursor: pointer;
+	width: 30%;
+	margin-left: 35%;
+	margin-right: 35%;
+	margin-top: 5%;
+
+	height: 80px;
+	border: none;
+	background-color: red;
+
+	color: white;
+	font-weight: bold;
+	font-size: 30px;
+	border: 1px solid white;
+}

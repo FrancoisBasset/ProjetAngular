@@ -78,10 +78,11 @@ export var Bulbizarre = new Pokemon('Bulbizarre', 1, 48, 48, 48, 48, [
 export var Dracaufeu = Pikachu;
 export var Carapuce = Ditto;
 export var Bulbizarre = Pikachu;
-export var AllPokemons = [
-	Pikachu,
-	Ditto,
-	Dracaufeu,
-	Carapuce,
-	Bulbizarre
-];
+export var AllPokemons = {
+	'Pikachu': Pikachu,
+	'Ditto': Ditto,
+	'Dracaufeu': Dracaufeu,
+	'Carapuce': Carapuce,
+	'Bulbizarre': Bulbizarre
+};
+
