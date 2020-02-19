@@ -5,7 +5,7 @@ import { FightComponent } from './fight/fight.component';
 import { SelectionComponent } from './selection/selection.component';
 import { MenuComponent } from './menu/menu.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', component: MenuComponent },
   { path: 'pokemons', component: PokemonComponent },
   { path: 'selection', component: SelectionComponent },
