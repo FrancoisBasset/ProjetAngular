@@ -1,10 +1,16 @@
+#row {
+	text-align: center;
+}
+
 #labelSelection {
 	color: white;
 	font-size: 50px;
 	font-family: fantasy;
-	margin-left: 38%;
-	margin-right: 34%;
 	padding: 0px;
+}
+
+.battle {
+	cursor: pointer;
 }
 
 .pokemon {
@@ -19,6 +25,7 @@
 
 .pokemon:hover {
 	border-color: red;
+	cursor: pointer;
 }
 
 .pokemonSelected {
