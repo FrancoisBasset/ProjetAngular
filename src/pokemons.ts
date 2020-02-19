@@ -40,6 +40,13 @@ export var AllPokemons = {
 	'Ditto': Ditto,
 	'Dracaufeu': Dracaufeu,
 	'Carapuce': Carapuce,
-	'Bulbizarre': Bulbizarre
+	'Bulbizarre': Bulbizarre,
+	'a': Bulbizarre,
+	'z': Bulbizarre,
+	'e': Bulbizarre,
+	'r': Bulbizarre,
+	't': Bulbizarre,
+	'y': Bulbizarre,
+	'u': Bulbizarre
 };
 

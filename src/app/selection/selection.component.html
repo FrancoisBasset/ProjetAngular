@@ -1,11 +1,9 @@
 <div id="row"><label id="labelSelection">Selection de 2 Pokémons</label></div>
 
-<table>
-	<tr >
-		<td *ngFor="let pokemon of allPokemons">
-			<img class="pokemon" src="../../assets/images/pokemon/{{pokemon.name}}.png" (click)="onPokemonClick(pokemon)" [class.pokemonSelected]="selectedPokemon(pokemon)">
-		</td>
-	</tr>
-</table>
+<div class="center">
+	<div id="row-pokemons" *ngFor="let pokemon of allPokemons">
+		<img class="pokemon" src="../../assets/images/pokemon/{{pokemon.name}}.png" (click)="onPokemonClick(pokemon)" [class.pokemonSelected]="selectedPokemon(pokemon)">	
+	</div>
+</div>
 
 <div id="row"><img class="battle" src="../../assets/images/shared/pokeball_logo.png" (click)="clickBattle()" /></div>
