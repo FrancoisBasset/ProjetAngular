@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon, Attack } from 'src/logic/models';
+import { Pokemon, Attack } from 'src/app/models';
 import { Pikachu, Ditto } from '../../pokemons';
 
 @Component({

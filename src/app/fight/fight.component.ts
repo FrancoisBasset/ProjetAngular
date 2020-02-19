@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Pokemon } from 'src/logic/models';
-import { AttackServices, GameServices } from 'src/logic/services';
-import SpeedServices from 'src/logic/services/SpeedServices';
 import { ActivatedRoute } from '@angular/router';
+
+import { Pokemon } from 'src/app/models';
+import { AttackService, GameService, SpeedService } from 'src/app/services';
 import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre, AllPokemons } from '../../pokemons';
 
 @Component({
@@ -13,7 +13,7 @@ import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre, AllPokemons } from '..
 export class FightComponent implements OnInit, OnDestroy {
   @Input() pokemonA: Pokemon
   @Input() pokemonB: Pokemon
-  game: GameServices
+  game: GameService
   on: boolean = false;
   label: string = 'Start';
 
@@ -31,7 +31,7 @@ export class FightComponent implements OnInit, OnDestroy {
 		this.pokemonB = AllPokemons[params.pokemonB];
 	});
 
-    this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices());
+    this.game = new GameService(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackService(), new SpeedService());
   }
 
   onClick(): void {

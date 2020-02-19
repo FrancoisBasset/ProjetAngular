@@ -1,6 +1,5 @@
-import { Pokemon } from "../models";
-import AttackServices from "./AttackServices";
-import SpeedServices from './SpeedServices';
+import { Pokemon } from "../../models";
+import { AttackService, SpeedService } from "../index";
 
 export default class GameServices {
     intervalId: any;
@@ -10,8 +9,8 @@ export default class GameServices {
         public write: (message: string) => void,
         public pokemonA: Pokemon,
         public pokemonB: Pokemon,
-        public attackServices: AttackServices,
-        public speedServices: SpeedServices
+        public attackServices: AttackService,
+        public speedServices: SpeedService
     )
     {}
 
