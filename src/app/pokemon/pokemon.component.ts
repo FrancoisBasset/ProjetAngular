@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon, Attack } from 'src/logic/models';
-import { pokemonA, pokemonB } from '../../pokemons';
+import { Pikachu, Ditto } from '../../pokemons';
 
 @Component({
   selector: 'app-pokemon',
@@ -14,8 +14,8 @@ export class PokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemons = [
-		pokemonA,
-		pokemonB
+		Pikachu,
+		Ditto
     ];
   }
 

@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { FightComponent } from './fight/fight.component';
+import { SelectionComponent } from './selection/selection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonComponent,
-    FightComponent
+    FightComponent,
+    SelectionComponent
   ],
   imports: [
     BrowserModule,
