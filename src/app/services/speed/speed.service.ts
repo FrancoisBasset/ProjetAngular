@@ -1,6 +1,6 @@
-import { Pokemon, Ability, Item } from "../models";
+import { Pokemon, Ability, Item } from "src/app/models";
 
-export default class SpeedServices {
+export default class SpeedService {
     slowItems = [
         Item.IronBall,
         Item.MachoBrace,

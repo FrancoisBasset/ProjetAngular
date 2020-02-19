@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SelectionComponent } from './selection.component';
+import { PokeApiService } from '../services';
+import { RouterModule } from '@angular/router';
 
 describe('SelectionComponent', () => {
   let component: SelectionComponent;
@@ -8,7 +10,9 @@ describe('SelectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectionComponent ]
+      declarations: [ SelectionComponent ],
+      providers: [PokeApiService],
+      imports: [RouterModule]
     })
     .compileComponents();
   }));
