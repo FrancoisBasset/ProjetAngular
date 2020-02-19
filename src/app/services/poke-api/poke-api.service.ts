@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-
-import { Pokemon } from './models'
+import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 
-@Injectable()
+import { Pokemon } from 'src/app/models';
+
+@Injectable({
+  providedIn: 'root'
+})
 export default class PokeApiService {
-  private baseURL: string = 'https://pokeapi.co/api/v2'
+  public baseURL: string = 'https://pokeapi.co/api/v2'
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +26,19 @@ export default class PokeApiService {
     return throwError(errorMessage);
   }
 
+  public getByKey(key: string | number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(`${this.baseURL}/pokemon/${key}/`)
+      .pipe(
+        catchError(this.handleError),
+        map(p => Pokemon.fromApi(p))
+      )
+  }
+
   public getByName(name: string): Observable<Pokemon> {
-    return this.http.get<Pokemon>(`${this.baseURL}/pokemon/${name}/`).pipe(catchError(this.handleError));
+    return this.getByKey(name);
+  }
+
+  public getById(id: number): Observable<Pokemon> {
+    return this.getByKey(id);
   }
 }

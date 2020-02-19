@@ -1,54 +1,22 @@
-import { Pokemon, Attack } from "../models";
-import AttackServices from './AttackServices';
+import { Pokemon, Attack } from "../../models";
+import AttackService from './attack.service';
+import { Pikachu, Ditto } from 'src/pokemons';
 
 describe('AttackServices logic service', () => {
   let pikachu: Pokemon;
   let ditto: Pokemon;
   let eclair: Attack
   let deflagration: Attack
-  let attackServices: AttackServices;
+  let attackServices: AttackService;
 
   beforeEach( () => {
     eclair = new Attack('Eclair', 40)
     deflagration = new Attack('Déflagration', 35)
 
-    pikachu = new Pokemon(
-      'Pikachu',
-      70,
-      90,
-      55,
-      40,
-      30,
-      [
-        eclair,
-        new Attack('Charge', 5),
-        new Attack('Tonnerre', 60),
-        new Attack('Rugissement', 1)
-      ],
-      [],
-      [],
-      'yellow'
-    )
-    
-    ditto = new Pokemon(
-      'Ditto',
-      1,
-      48,
-      48,
-      48,
-      48,
-      [
-        new Attack('Charge', 5),
-        new Attack('Flammèche', 25),
-        new Attack('Lèchouille', 75),
-        deflagration
-      ],
-      [],
-      [],
-      'pink'
-    )
+    pikachu = Pikachu;
+    ditto = Ditto;
 
-    attackServices = new AttackServices();
+    attackServices = new AttackService();
   })
 
   it('Calculated dammages of Pikachu Eclair should be 29', () => {
