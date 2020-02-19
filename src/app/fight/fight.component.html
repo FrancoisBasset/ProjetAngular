@@ -1,10 +1,9 @@
-<img src="../../assets/images/pokemon/{{game.pokemonA.name}}.png" alt="Pokemon A" width="200px">
-<img src="../../assets/images/shared/VS.png" alt="Pokemon B" width="100px" style="padding-left: 50px; padding-right: 50px;">
-<img src="../../assets/images/pokemon/{{game.pokemonB.name}}.png" alt="Pokemon B" width="200px">
+<img id="pokemonA" src="../../assets/images/pokemon/{{game.pokemonA.name}}.png" alt="Pokemon A">
+<img id="vs" src="../../assets/images/shared/VS.png" alt="Pokemon B">
+<img id="pokemonB" src="../../assets/images/pokemon/{{game.pokemonB.name}}.png" alt="Pokemon B">
 <br>
 
-<button (click)="onClick()" style="width: 600px; margin-top: 30px;">{{label}}</button>
-
+<button id="startStop" (click)="onClick()">{{label}}</button>
 <div *ngFor="let line of dispLines">
 	{{line}}
 </div>

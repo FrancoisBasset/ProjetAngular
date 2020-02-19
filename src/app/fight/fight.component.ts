@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Pokemon } from 'src/logic/models';
 import { AttackServices, GameServices } from 'src/logic/services';
 import SpeedServices from 'src/logic/services/SpeedServices';
-import { pokemonA, pokemonB } from '../../pokemons';
+import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre } from '../../pokemons';
 
 @Component({
   selector: 'app-fight',
@@ -25,8 +25,8 @@ export class FightComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.pokemonA = pokemonA;
-    this.pokemonB = pokemonB;
+    this.pokemonA = Dracaufeu;
+    this.pokemonB = Bulbizarre;
   
     this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices())
   }

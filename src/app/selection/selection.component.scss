@@ -1,0 +1,27 @@
+#labelSelection {
+	color: white;
+	font-size: 50px;
+	font-family: fantasy;
+	margin-left: 38%;
+	margin-right: 34%;
+	padding: 0px;
+}
+
+.pokemon {
+	width: 100px;
+	height: 100px;
+	border: 7px;
+	border-style: solid;
+	border-color: yellow;
+	background-color: rgba(255, 255, 255, 0.4);
+	margin: 20px;
+}
+
+.pokemon:hover {
+	border-color: red;
+}
+
+.pokemonSelected {
+	border-color: green;
+	background-color: rgba(0, 255, 0, 0.4);
+}
