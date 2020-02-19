@@ -1,32 +1,19 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 
-import PokeApiService from "./PokeApi.service";
+import PokeApiService from "./pokeapi.service";
 
 
 describe('PokemonApiService tests', () => {
-  let api: PokeApiService = new PokeApiService();
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PokeapiServiceService]
+      providers: [PokeApiService]
     });
   });
 
-  it('Should return Pikachu', () => {
-    pikachu.loseHealth(10);
-    expect(pikachu.health).toBe(20);
-  });
-});
-
-
-describe('PokeapiServiceService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [PokeapiServiceService]
-    });
-  });
-
-  it('should ...', inject([PokeapiServiceService], (service: PokeapiServiceService) => {
-    expect(service).toBeTruthy();
+  it('should get Pikachu', inject([PokeApiService], (service: PokeApiService) => {
+    let result = service.getByName('pikachu');
+    console.log(result)
+    expect(result).toBeTruthy();
   }));
 });
