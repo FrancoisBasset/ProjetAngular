@@ -35,10 +35,11 @@ export var Bulbizarre = new Pokemon('Bulbizarre', 1, 48, 48, 48, 48, [
 	new Attack('Déflagration', 40)
 ], [], [], 'purple');
 
-export var AllPokemons = [
-	Pikachu,
-	Ditto,
-	Dracaufeu,
-	Carapuce,
-	Bulbizarre
-];
+export var AllPokemons = {
+	'Pikachu': Pikachu,
+	'Ditto': Ditto,
+	'Dracaufeu': Dracaufeu,
+	'Carapuce': Carapuce,
+	'Bulbizarre': Bulbizarre
+};
+

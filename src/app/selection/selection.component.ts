@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/logic/models';
 import { AllPokemons } from '../../pokemons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-selection',
@@ -13,24 +14,24 @@ export class SelectionComponent implements OnInit {
 	pokemonB: Pokemon;
 	//nbSelection: number = 0;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-	  this.allPokemons = AllPokemons;
+	  this.allPokemons = Object.values(AllPokemons);
   }
 
   onPokemonClick(pokemon: Pokemon): void {
 	  if (this.pokemonA == null && this.pokemonB == null) {
-		  console.log('A: ' + pokemon.name);
+		  //console.log('A: ' + pokemon.name);
 		  this.pokemonA = pokemon;
 	  } else if (this.pokemonA != null && this.pokemonA.name == pokemon.name) {
-		  console.log('A: null');
+		  //console.log('A: null');
 		  this.pokemonA = null;
 		} else if (this.pokemonA != null && this.pokemonB == null) {
-		  console.log('B: ' + pokemon.name);
+		  //console.log('B: ' + pokemon.name);
 		  this.pokemonB = pokemon;		  
 	  }  else if (this.pokemonB.name == pokemon.name) {
-		  console.log('B: Null');
+		  //console.log('B: Null');
 		  this.pokemonB = null;
 		}
   }
@@ -44,10 +45,9 @@ export class SelectionComponent implements OnInit {
   }
 
   clickBattle(): void {
-	  console.log(this.pokemonA);
-	  console.log(this.pokemonB);
-
-	  
+	  if (this.pokemonA != null && this.pokemonB != null) {
+		  this.router.navigate(['/fight'], { queryParams: { pokemonA: this.pokemonA.name, pokemonB: this.pokemonB.name}});
+	  }
   }
 
 }

@@ -2,7 +2,8 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Pokemon } from 'src/logic/models';
 import { AttackServices, GameServices } from 'src/logic/services';
 import SpeedServices from 'src/logic/services/SpeedServices';
-import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre } from '../../pokemons';
+import { ActivatedRoute } from '@angular/router';
+import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre, AllPokemons } from '../../pokemons';
 
 @Component({
   selector: 'app-fight',
@@ -18,21 +19,22 @@ export class FightComponent implements OnInit, OnDestroy {
 
   dispLines: string[] = []
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   addLine(str: string): void {
 	this.dispLines.push(str);
   }
 
   ngOnInit(): void {
-    this.pokemonA = Dracaufeu;
-    this.pokemonB = Bulbizarre;
-  
-    this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices())
+	this.route.queryParams.subscribe(params => {
+		this.pokemonA = AllPokemons[params.pokemonA];
+		this.pokemonB = AllPokemons[params.pokemonB];
+	});
+
+    this.game = new GameServices(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackServices(), new SpeedServices());
   }
 
   onClick(): void {
-
     if (this.on) {
 	  this.on = false;
 	  this.label = 'Start';
