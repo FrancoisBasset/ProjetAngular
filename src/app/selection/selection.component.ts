@@ -33,6 +33,8 @@ export class SelectionComponent implements OnInit {
 	  }  else if (this.pokemonB.name == pokemon.name) {
 		  //console.log('B: Null');
 		  this.pokemonB = null;
+		} else if (this.pokemonB != null && this.pokemonA == null) {
+			this.pokemonA = pokemon;
 		}
   }
 
