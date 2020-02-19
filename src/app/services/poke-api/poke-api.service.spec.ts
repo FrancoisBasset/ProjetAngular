@@ -10,8 +10,7 @@ describe('PokeApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [PokeApiService]
+      imports: [HttpClientTestingModule]
     });
     service = TestBed.inject(PokeApiService);
     httpMock = TestBed.get(HttpTestingController);

@@ -1,4 +1,5 @@
 import { Attack, Ability, Item } from '.';
+import { randomIntLessThan } from 'src/app/utils/utils'
 
 
 export default class Pokemon {
@@ -83,7 +84,7 @@ export default class Pokemon {
     }
 
     public getRandomAttack (): Attack {
-        return this.attacks[Math.floor(Math.random() * 100) % this.attacks.length]
+        return this.attacks[randomIntLessThan(this.attacks.length)]
     }
 
     public hasItem(item: Item) {
