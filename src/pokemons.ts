@@ -52,32 +52,89 @@ export var Ditto = new Pokemon({
 	frontSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
 	backSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png",
 	basePower: 108
-})
-/*
-export var Dracaufeu = new Pokemon('Dracaufeu', 1, 48, 48, 48, 48, [
-	new Attack('Charge', 5),
-	new Attack('Flammèche', 25),
-	new Attack('Lèchouille', 75),
-	new Attack('Déflagration', 40)
-], [], [], 'purple');
+});
 
-export var Carapuce = new Pokemon('Carapuce', 1, 48, 48, 48, 48, [
-	new Attack('Charge', 5),
-	new Attack('Flammèche', 25),
-	new Attack('Lèchouille', 75),
-	new Attack('Déflagration', 40)
-], [], [], 'purple');
+export var Dracaufeu = new Pokemon({
+	name: 'Dracaufeu',
+	level: 1,
+	speed: 48,
+	offStat: 48,
+	defStat: 48,
+	specOffStat: 48,
+	specDefStat: 48,
+	maxHealth: 48,
+	attacks: [
+		new Attack('Charge', 5),
+		new Attack('Flammèche', 25),
+		new Attack('Lèchouille', 75),
+		new Attack('Déflagration', 40)
+	],
+	abilities: [
+		Ability.SandRush
+	],
+	items: [
+		Item.PowerLens
+	],
+	color: 'purple',
+	frontSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
+	backSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png",
+	basePower: 108
+});
 
-export var Bulbizarre = new Pokemon('Bulbizarre', 1, 48, 48, 48, 48, [
-	new Attack('Charge', 5),
-	new Attack('Flammèche', 25),
-	new Attack('Lèchouille', 75),
-	new Attack('Déflagration', 40)
-], [], [], 'purple');
-*/
-export var Dracaufeu = Pikachu;
-export var Carapuce = Ditto;
-export var Bulbizarre = Pikachu;
+export var Carapuce = new Pokemon({
+	name: 'Carapuce',
+	level: 1,
+	speed: 48,
+	offStat: 48,
+	defStat: 48,
+	specOffStat: 48,
+	specDefStat: 48,
+	maxHealth: 48,
+	attacks: [
+		new Attack('Charge', 5),
+		new Attack('Flammèche', 25),
+		new Attack('Lèchouille', 75),
+		new Attack('Déflagration', 40)
+	],
+	abilities: [
+		Ability.SandRush
+	],
+	items: [
+		Item.PowerLens
+	],
+	color: 'purple',
+	frontSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
+	backSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png",
+	basePower: 108
+});
+
+export var Bulbizarre = new Pokemon({
+	name: 'Bulbizarre',
+	level: 1,
+	speed: 48,
+	offStat: 48,
+	defStat: 48,
+	specOffStat: 48,
+	specDefStat: 48,
+	maxHealth: 48,
+	attacks: [
+		new Attack('Charge', 5),
+		new Attack('Flammèche', 25),
+		new Attack('Lèchouille', 75),
+		new Attack('Déflagration', 40)
+	],
+	abilities: [
+		Ability.SandRush
+	],
+	items: [
+		Item.PowerLens
+	],
+	color: 'purple',
+	frontSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
+	backSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png",
+	basePower: 108
+});
+
 export var AllPokemons = {
 	'Pikachu': Pikachu,
 	'Ditto': Ditto,

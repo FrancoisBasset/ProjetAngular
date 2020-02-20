@@ -1,9 +1,12 @@
-<img id="pokemonA" src="../../assets/images/pokemon/{{game.pokemonA.name}}.png" alt="Pokemon A">
-<img id="vs" src="../../assets/images/shared/VS.png" alt="Pokemon B">
-<img id="pokemonB" src="../../assets/images/pokemon/{{game.pokemonB.name}}.png" alt="Pokemon B">
-<br>
-
-<button id="startStop" (click)="onClick()">{{label}}</button>
-<div *ngFor="let line of dispLines">
-	{{line}}
+<div class="row">
+	<img class="background_battle" src="../../assets/images/shared/background_battle.png" />
+	<img class="superpose" id="pokemonA" src="../../assets/images/pokemon/{{gameService.pokemonA.name}}.png" alt="Pokemon A">
+	<img class="superpose" id="pokemonB" src="../../assets/images/pokemon/{{gameService.pokemonB.name}}.png" alt="Pokemon B">
+</div>
+<div class="row-log">
+	<log></log>
+</div>
+<br/>
+<div class="row">
+	<button id="startStop" (click)="onClick()">{{label}}</button>
 </div>

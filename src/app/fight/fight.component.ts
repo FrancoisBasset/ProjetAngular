@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Pokemon } from 'src/app/models';
-import { AttackService, GameService, SpeedService } from 'src/app/services';
+import { GameService } from 'src/app/services';
 import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre, AllPokemons } from '../../pokemons';
+import { LogComponent } from '../log/log.component';
 
 @Component({
   selector: 'app-fight',
@@ -11,15 +12,15 @@ import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre, AllPokemons } from '..
   styleUrls: ['./fight.component.scss']
 })
 export class FightComponent implements OnInit, OnDestroy {
-  @Input() pokemonA: Pokemon
-  @Input() pokemonB: Pokemon
-  game: GameService
+  //@Input() pokemonA: Pokemon
+  //@Input() pokemonB: Pokemon
+  //game: GameService
   on: boolean = false;
   label: string = 'Start';
 
-  dispLines: string[] = []
+  dispLines: string[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, public gameService: GameService) { }
 
   addLine(str: string): void {
 	this.dispLines.push(str);
@@ -27,26 +28,30 @@ export class FightComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 	this.route.queryParams.subscribe(params => {
-		this.pokemonA = AllPokemons[params.pokemonA];
-		this.pokemonB = AllPokemons[params.pokemonB];
+		this.gameService.pokemonA = AllPokemons[params.pokemonA];
+		this.gameService.pokemonB = AllPokemons[params.pokemonB];
 	});
+	
 
-    this.game = new GameService(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackService(), new SpeedService());
+	//this.gameService.pokemonA = this.pokemonA;
+	//this.gameService.pokemonB = this.pokemonB;
+
+    //this.game = new GameService(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackService(), new SpeedService());
   }
 
   onClick(): void {
     if (this.on) {
 	  this.on = false;
 	  this.label = 'Start';
-	  this.game.pause();
+	  this.gameService.pause();
     } else {
       this.on = true;	  
 	  this.label = 'Stop';
-      this.game.play()
+      this.gameService.play();
     }
   }
 
   ngOnDestroy(): void {
-    this.game.pause();
+    this.gameService.pause();
   }
 }
