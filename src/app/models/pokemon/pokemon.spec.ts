@@ -1,5 +1,4 @@
-import { Pokemon, Ability, Item } from ".";
-import Attack from './Attack';
+import { Pokemon, Ability, Item, Attack } from "..";
 
 describe('Pokemon logic model', () => {
   let pikachu: Pokemon;
@@ -35,7 +34,7 @@ describe('Pokemon logic model', () => {
     })
 
     MathRandom = Math.random;
-    Math.random = () => 0.01;
+    Math.random = () => 0.25;
   });
 
   it('Pikachu should have 20HP after having lost 10HP', () => {

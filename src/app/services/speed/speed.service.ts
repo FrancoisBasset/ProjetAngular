@@ -1,4 +1,5 @@
 import { Pokemon, Ability, Item } from "src/app/models";
+import { randomBoolean } from "src/app/utils/utils";
 
 export default class SpeedService {
     slowItems = [
@@ -34,7 +35,7 @@ export default class SpeedService {
         let speedA = this.getCalculatedSpeed(a)
         let speedB = this.getCalculatedSpeed(b)
         if ( speedA === speedB ) {
-            return Math.random() < 0.5 ? a : b
+            return randomBoolean() ? a : b
         }
         return speedA > speedB ? a : b;
     }
