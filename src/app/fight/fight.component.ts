@@ -16,7 +16,7 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
   constructor(private route: ActivatedRoute, public gameService: GameService, private pokeApiService: PokeApiService) { }
 
   autoScroll(): void {
-    let myDiv = document.getElementById("log");
+    let myDiv = document.getElementById("logBox");
     myDiv.scrollTop = myDiv.scrollHeight - myDiv.offsetHeight;
   }
 
