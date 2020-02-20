@@ -1,16 +1,28 @@
 #pokemonA {
-	width: 300px;
-	margin-left: 22%;
-}
-
-#vs {
-	width: 100px;
-	margin-left: 10%;
+	top: 50%;
+	left: 30%;
 }
 
 #pokemonB {
-	width: 300px;
-	margin-left: 10%;
+	top: 15%;
+	right: 30%;
+}
+
+.row {
+	padding-top: 2%;
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+.superpose {
+	position: absolute;
+	width:15%;
+}
+
+.background_battle {
+	width: 50%;
+	border: 2px solid white;
 }
 
 #startStop {
