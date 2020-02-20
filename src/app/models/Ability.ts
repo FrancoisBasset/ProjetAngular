@@ -65,6 +65,7 @@ export enum Ability {
   Swarm = "swarm",
   SwiftSwim = "swift-swim",
   Synchronize = "synchronize",
+  Tailwind = "tailwind",
   ThickFat = "thick-fat",
   Torrent = "torrent",
   Trace = "trace",

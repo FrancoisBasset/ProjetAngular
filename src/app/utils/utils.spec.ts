@@ -1,4 +1,4 @@
-import { randomIntLessThan, randomBoolean } from './utils';
+import { randomIntLessThan, randomBoolean, randomIntInterval } from './utils';
 
 describe('Tests Utils', () => {
   let MathRandom: () => number;
@@ -14,6 +14,10 @@ describe('Tests Utils', () => {
 
   it('Random boolean should return true', () => {
     expect(randomBoolean()).toBe(true);
+  });
+
+  it('Random interval should return 31', () => {
+    expect(randomIntInterval(30, 40)).toBe(31);
   });
 
   afterEach( () => {
