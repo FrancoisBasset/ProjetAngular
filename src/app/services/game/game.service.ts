@@ -1,7 +1,6 @@
 import { Pokemon } from "../../models";
 import { AttackService, SpeedService } from "../index";
 import { Injectable } from '@angular/core';
-import { LogComponent } from 'src/app/log/log.component';
 
 @Injectable({
   providedIn: 'root'
@@ -23,15 +22,9 @@ export default class GameService {
     {}
 
     private demiRound() {
-		//var log = {};
-
         let fastest = this.speedServices.getFastest(this.pokemonA, this.pokemonB)
         let attacker = ( fastest === this.pokemonA  && this.fastestToAttack ? this.pokemonA : this.pokemonB )
 		let target = ( attacker === this.pokemonA ? this.pokemonB : this.pokemonA )
-		
-		/*log["attacker"] = attacker;
-		log["target"] = target;
-		log["da"]*/
 
         let attack = attacker.getRandomAttack();
         let dammages = this.attackServices.attack(attacker, attack, target);
@@ -48,7 +41,6 @@ export default class GameService {
     }
 
     public play () {
-		//this.log = 'okok';
         this.intervalId = setInterval(this.demiRound.bind(this), 1000);
     }
 

@@ -1,9 +1,1 @@
 <textarea id="logBox" readonly>{{gameService.log}}</textarea>
-
-<script>
-	var textarea = document.getElementById('logBox');
-	setInterval(function(){
-    	//textarea.value += Math.random()+'\n';
-    	textarea.scrollTop = textarea.scrollHeight;
-	}, 1000);
-</script>
