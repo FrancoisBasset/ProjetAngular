@@ -16,6 +16,7 @@ describe('SelectionComponent', () => {
   let component: SelectionComponent;
   let fixture: ComponentFixture<SelectionComponent>;
   let pokeApi: PokeApiService;
+  let view: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -41,11 +42,16 @@ describe('SelectionComponent', () => {
     pokeApi = TestBed.get(PokeApiService);
     jest.spyOn(pokeApi, 'getByKey').mockImplementation( key => of(Pikachu) );
     fixture = TestBed.createComponent(SelectionComponent);
+    view = fixture.elementRef.nativeElement;
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain Pikachu (image URL)', () => {
+    expect(view.innerHTML).toContain('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png');
   });
 });

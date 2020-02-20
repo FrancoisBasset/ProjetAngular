@@ -25,7 +25,7 @@ export class MoveDTO {
 
 export class StatDTO {
     stat: {
-        name: 'hp' | 'speed' | 'attack '| 'defense' | 'special-attack '| 'special-defense'
+        name: 'hp' | 'speed' | 'attack' | 'defense' | 'special-attack' | 'special-defense'
         url: string
     }
     base_stat: number

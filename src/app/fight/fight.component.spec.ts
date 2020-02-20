@@ -7,11 +7,13 @@ import { LogComponent } from '../log/log.component';
 import { PokeApiService } from '../services';
 import { Pikachu, Ditto } from 'src/pokemons';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ElementRef } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('FightComponent', () => {
   let component: FightComponent;
   let fixture: ComponentFixture<FightComponent>;
-  let view: any;
+  let view: ElementRef;
   let pokeApi: PokeApiService;
 
   beforeEach(async(() => {
@@ -51,11 +53,13 @@ describe('FightComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('should render "Pikachu"', () => {
-    expect(view.innerHTML).toContain('Pikachu');
+  it('should render Pikachu as pokemonA (imageURL)', () => {
+    const imageUrl = fixture.debugElement.query(By.css('#pokemonA')).properties.src;
+    expect(imageUrl).toContain('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png');
   });
 
-  it('should render "Ditto"', () => {
-    expect(view.innerHTML).toContain('Ditto');
-  });*/
+  it('should render as pokemonB (imageURL)', () => {
+    const imageUrl = fixture.debugElement.query(By.css('#pokemonB')).properties.src;
+    expect(imageUrl).toContain('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png');
+  });
 });

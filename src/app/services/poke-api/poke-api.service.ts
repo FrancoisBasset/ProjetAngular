@@ -33,7 +33,7 @@ export default class PokeApiService {
     return this.http.get<PokemonDTO>(`${this.baseURL}/pokemon/${key}/`)
       .pipe(
         catchError(this.handleError),
-        tap(console.log),
+        //tap(console.log),
         map(p => Pokemon.fromDto(p))
       )
   }
