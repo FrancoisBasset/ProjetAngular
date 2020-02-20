@@ -2,7 +2,7 @@
 
 <div class="center">
 	<div id="row-pokemons" *ngFor="let pokemon of allPokemons">
-		<img class="pokemon" src="../../assets/images/pokemon/{{pokemon.name}}.png" (click)="onPokemonClick(pokemon)" [class.pokemonSelected]="selectedPokemon(pokemon)">	
+		<img class="pokemon" src="{{pokemon.frontSpriteUrl}}" (click)="onPokemonClick(pokemon)" [class.pokemonSelected]="selectedPokemon(pokemon)">	
 	</div>
 </div>
 

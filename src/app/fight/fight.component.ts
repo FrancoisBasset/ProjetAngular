@@ -2,8 +2,8 @@ import { Component, OnInit, Input, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Pokemon } from 'src/app/models';
-import { GameService } from 'src/app/services';
-import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre, AllPokemons } from '../../pokemons';
+import { GameService, PokeApiService } from 'src/app/services';
+import { Pikachu, Ditto } from '../../pokemons';
 import { LogComponent } from '../log/log.component';
 
 @Component({
@@ -20,7 +20,7 @@ export class FightComponent implements OnInit, OnDestroy {
 
   dispLines: string[] = [];
 
-  constructor(private route: ActivatedRoute, public gameService: GameService) { }
+  constructor(private route: ActivatedRoute, public gameService: GameService, private pokeApiService: PokeApiService) { }
 
   addLine(str: string): void {
 	this.dispLines.push(str);
@@ -28,8 +28,10 @@ export class FightComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 	this.route.queryParams.subscribe(params => {
-		this.gameService.pokemonA = AllPokemons[params.pokemonA];
-		this.gameService.pokemonB = AllPokemons[params.pokemonB];
+    this.pokeApiService.getByKey(params.pokemonA).subscribe((p) => { this.gameService.pokemonA = p})
+    this.pokeApiService.getByKey(params.pokemonB).subscribe((p) => { this.gameService.pokemonB = p})
+		//this.gameService.pokemonA = AllPokemons[params.pokemonA];
+		//this.gameService.pokemonB = AllPokemons[params.pokemonB];
 	});
 	
 	this.gameService.log = '';
