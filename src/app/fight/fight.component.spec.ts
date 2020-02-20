@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FightComponent } from './fight.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { LogComponent } from '../log/log.component';
 
 describe('FightComponent', () => {
   let component: FightComponent;
@@ -11,7 +12,10 @@ describe('FightComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FightComponent ],
+      declarations: [
+        FightComponent,
+        LogComponent
+      ],
       providers: [
         {
           provide: ActivatedRoute, useValue: {
