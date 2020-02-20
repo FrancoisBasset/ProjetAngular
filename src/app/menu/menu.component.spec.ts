@@ -6,6 +6,7 @@ import { routes } from '../app-routing.module';
 import { SelectionComponent } from '../selection/selection.component';
 import { PokemonComponent } from '../pokemon/pokemon.component';
 import { FightComponent } from '../fight/fight.component';
+import { LogComponent } from '../log/log.component';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -17,7 +18,8 @@ describe('MenuComponent', () => {
         SelectionComponent,
         PokemonComponent,
         MenuComponent,
-        FightComponent
+        FightComponent,
+        LogComponent
       ],
       imports: [RouterTestingModule.withRoutes(routes)]
     })

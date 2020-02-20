@@ -57,9 +57,9 @@ export class Pokemon {
             .map(m => new Attack(m.move.name, 1));
         let speed = dto.stats.find( s => s.stat.name === 'speed').base_stat;
         let hp = dto.stats.find( s => s.stat.name === 'hp').base_stat;
-        let offStat = dto.stats.find( s => s.stat.name === 'attack').base_stat;
+        let offStat = dto.stats.find( s => s.stat.name === 'attack ').base_stat;
         let defStat = dto.stats.find( s => s.stat.name === 'defense').base_stat;
-        let specOffStat = dto.stats.find( s => s.stat.name === 'special-attack').base_stat;
+        let specOffStat = dto.stats.find( s => s.stat.name === 'special-attack ').base_stat;
         let specDefStat = dto.stats.find( s => s.stat.name === 'special-defense').base_stat;
         return new Pokemon({
             id: dto.id,
