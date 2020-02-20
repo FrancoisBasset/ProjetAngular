@@ -11,7 +11,7 @@ export class LogComponent implements OnInit {
   constructor(public logService: LogService) { }
 
   ngOnInit(): void {
-
+	  this.logService.log = [];
   }
 
 }
