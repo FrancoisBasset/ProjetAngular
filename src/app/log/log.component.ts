@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../services';
+import { LogService } from '../log.service';
 
 @Component({
   selector: 'log',
@@ -8,10 +8,10 @@ import { GameService } from '../services';
 })
 export class LogComponent implements OnInit {
 
-  constructor(public gameService: GameService) { }
+  constructor(public logService: LogService) { }
 
   ngOnInit(): void {
-
+	  this.logService.log = [];
   }
 
 }
