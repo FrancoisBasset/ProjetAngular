@@ -1,5 +1,6 @@
 import { Pokemon } from "../../models";
-import { AttackService, SpeedService } from "../index";
+import AttackService from "../attack/attack.service";
+import SpeedService from "../speed/speed.service";
 import { Injectable } from '@angular/core';
 import { LogComponent } from 'src/app/log/log.component';
 
