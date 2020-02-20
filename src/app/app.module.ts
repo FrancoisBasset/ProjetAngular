@@ -8,6 +8,7 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { FightComponent } from './fight/fight.component';
 import { SelectionComponent } from './selection/selection.component';
 import { MenuComponent } from './menu/menu.component';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MenuComponent } from './menu/menu.component';
     PokemonComponent,
     FightComponent,
     SelectionComponent,
-    MenuComponent
+    MenuComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule,
