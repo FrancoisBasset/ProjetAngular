@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { GameService } from 'src/app/services';
-import { AllPokemons } from '../../pokemons';
+import { GameService, PokeApiService } from 'src/app/services';
+//import { AllPokemons } from '../../pokemons';
 
 @Component({
   selector: 'app-fight',
@@ -17,8 +17,8 @@ export class FightComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 	this.route.queryParams.subscribe(params => {
-    this.pokeApiService.getByKey(params.pokemonA).subscribe((p) => { this.gameService.pokemonA = p})
-    this.pokeApiService.getByKey(params.pokemonB).subscribe((p) => { this.gameService.pokemonB = p})
+		this.pokeApiService.getByKey(params.pokemonA).subscribe((p) => { this.gameService.pokemonA = p})
+		this.pokeApiService.getByKey(params.pokemonB).subscribe((p) => { this.gameService.pokemonB = p})
 		//this.gameService.pokemonA = AllPokemons[params.pokemonA];
 		//this.gameService.pokemonB = AllPokemons[params.pokemonB];
 	});

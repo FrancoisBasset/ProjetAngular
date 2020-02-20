@@ -1,1 +1,13 @@
-<textarea id="logBox" readonly>{{logService.log}}</textarea>
+<!--<textarea id="logBox" readonly>{{logService.log}}</textarea>-->
+<div id="logBox">
+	<div *ngFor="let log of logService.log">
+		<label *ngIf="log.end == false">
+			<span style="color: blue;">{{log.attacker}}</span> utilise l'attaque {{log.attack}}<br>
+			<span style="color: green;">{{log.target}}</span> perd {{log.damages}} ({{log.health}} PV restants)
+		</label>
+		<label *ngIf="log.end == true">
+			<span style="color: red;">{{log.target}}</span> n'a plus de PV<br>
+			{{log.attacker}} remporte le combat
+		</label><br><br>
+	</div>
+</div>
