@@ -7,6 +7,7 @@ import { routes } from '../app-routing.module'
 import { PokemonComponent } from '../pokemon/pokemon.component';
 import { MenuComponent } from '../menu/menu.component';
 import { FightComponent } from '../fight/fight.component';
+import { LogComponent } from '../log/log.component';
 
 describe('SelectionComponent', () => {
   let component: SelectionComponent;
@@ -18,7 +19,8 @@ describe('SelectionComponent', () => {
         SelectionComponent,
         PokemonComponent,
         MenuComponent,
-        FightComponent
+        FightComponent,
+        LogComponent
       ],
       providers: [PokeApiService],
       imports: [RouterTestingModule.withRoutes(routes)]
