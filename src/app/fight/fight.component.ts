@@ -32,6 +32,7 @@ export class FightComponent implements OnInit, OnDestroy {
 		this.gameService.pokemonB = AllPokemons[params.pokemonB];
 	});
 	
+	this.gameService.log = '';
 
 	//this.gameService.pokemonA = this.pokemonA;
 	//this.gameService.pokemonB = this.pokemonB;
