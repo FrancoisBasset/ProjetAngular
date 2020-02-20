@@ -1,8 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { SelectionComponent } from './selection.component';
 import { PokeApiService } from '../services';
-import { RouterModule } from '@angular/router';
+import { routes } from '../app-routing.module'
+import { PokemonComponent } from '../pokemon/pokemon.component';
+import { MenuComponent } from '../menu/menu.component';
+import { FightComponent } from '../fight/fight.component';
 
 describe('SelectionComponent', () => {
   let component: SelectionComponent;
@@ -10,9 +14,14 @@ describe('SelectionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectionComponent ],
+      declarations: [
+        SelectionComponent,
+        PokemonComponent,
+        MenuComponent,
+        FightComponent
+      ],
       providers: [PokeApiService],
-      imports: [RouterModule]
+      imports: [RouterTestingModule.withRoutes(routes)]
     })
     .compileComponents();
   }));
