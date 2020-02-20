@@ -1,10 +1,8 @@
-import { Component, OnInit, Input, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Pokemon } from 'src/app/models';
 import { GameService } from 'src/app/services';
-import { Pikachu, Ditto, Dracaufeu, Carapuce, Bulbizarre, AllPokemons } from '../../pokemons';
-import { LogComponent } from '../log/log.component';
+import { AllPokemons } from '../../pokemons';
 
 @Component({
   selector: 'app-fight',
@@ -12,32 +10,16 @@ import { LogComponent } from '../log/log.component';
   styleUrls: ['./fight.component.scss']
 })
 export class FightComponent implements OnInit, OnDestroy {
-  //@Input() pokemonA: Pokemon
-  //@Input() pokemonB: Pokemon
-  //game: GameService
   on: boolean = false;
   label: string = 'Start';
 
-  dispLines: string[] = [];
-
   constructor(private route: ActivatedRoute, public gameService: GameService) { }
-
-  addLine(str: string): void {
-	this.dispLines.push(str);
-  }
 
   ngOnInit(): void {
 	this.route.queryParams.subscribe(params => {
 		this.gameService.pokemonA = AllPokemons[params.pokemonA];
 		this.gameService.pokemonB = AllPokemons[params.pokemonB];
 	});
-	
-	this.gameService.log = '';
-
-	//this.gameService.pokemonA = this.pokemonA;
-	//this.gameService.pokemonB = this.pokemonB;
-
-    //this.game = new GameService(this.addLine.bind(this), this.pokemonA, this.pokemonB, new AttackService(), new SpeedService());
   }
 
   onClick(): void {
