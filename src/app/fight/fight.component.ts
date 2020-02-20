@@ -13,12 +13,14 @@ export class FightComponent implements OnInit, OnDestroy {
   on: boolean = false;
   label: string = 'Start';
 
-  constructor(private route: ActivatedRoute, public gameService: GameService) { }
+  constructor(private route: ActivatedRoute, public gameService: GameService, private pokeApiService: PokeApiService) { }
 
   ngOnInit(): void {
 	this.route.queryParams.subscribe(params => {
-		this.gameService.pokemonA = AllPokemons[params.pokemonA];
-		this.gameService.pokemonB = AllPokemons[params.pokemonB];
+    this.pokeApiService.getByKey(params.pokemonA).subscribe((p) => { this.gameService.pokemonA = p})
+    this.pokeApiService.getByKey(params.pokemonB).subscribe((p) => { this.gameService.pokemonB = p})
+		//this.gameService.pokemonA = AllPokemons[params.pokemonA];
+		//this.gameService.pokemonB = AllPokemons[params.pokemonB];
 	});
   }
 

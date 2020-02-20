@@ -1,4 +1,5 @@
 import { Pokemon, Attack, Ability, Item } from 'src/app/models';
+import PokeApiService from './app/services/poke-api/poke-api.service'
 
 export var Pikachu = new Pokemon({
 	name: 'Pikachu',
@@ -54,7 +55,7 @@ export var Ditto = new Pokemon({
 	basePower: 108
 });
 
-export var Dracaufeu = new Pokemon({
+/*export var Dracaufeu = new Pokemon({
 	name: 'Dracaufeu',
 	level: 1,
 	speed: 48,
@@ -133,13 +134,4 @@ export var Bulbizarre = new Pokemon({
 	frontSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
 	backSpriteUrl: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png",
 	basePower: 108
-});
-
-export var AllPokemons = {
-	'Pikachu': Pikachu,
-	'Ditto': Ditto,
-	'Dracaufeu': Dracaufeu,
-	'Carapuce': Carapuce,
-	'Bulbizarre': Bulbizarre
-};
-
+});*/

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models';
-import { AllPokemons } from '../../pokemons';
 import { Router } from '@angular/router';
+import { PokeApiService } from '../services';
 
 @Component({
   selector: 'app-selection',
@@ -14,10 +14,12 @@ export class SelectionComponent implements OnInit {
 	pokemonB: Pokemon;
 	//nbSelection: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private pokeApiService: PokeApiService) { }
 
   ngOnInit(): void {
-	  this.allPokemons = Object.values(AllPokemons);
+	  this.pokeApiService.getRandomPokemons(20).subscribe((pokemons) => {
+		  this.allPokemons = pokemons
+	  })
   }
 
   onPokemonClick(pokemon: Pokemon): void {
