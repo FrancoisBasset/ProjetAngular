@@ -1,5 +1,4 @@
 import { Pokemon, Attack, Ability, Item } from 'src/app/models';
-import PokeApiService from './app/services/poke-api/poke-api.service'
 
 export var Pikachu = new Pokemon({
 	name: 'Pikachu',

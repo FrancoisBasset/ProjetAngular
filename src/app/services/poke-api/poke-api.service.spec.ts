@@ -8,7 +8,7 @@ describe('PokeApiService', () => {
   let service: PokeApiService;
   let httpMock: HttpTestingController;
   let MathRandom: () => number;
-  let pikachuFromApi: PokemonDTO;
+  //let pikachuFromApi: PokemonDTO;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,7 +18,7 @@ describe('PokeApiService', () => {
     httpMock = TestBed.get(HttpTestingController);
     MathRandom = Math.random;
     Math.random = () => 0.1;
-    pikachuFromApi = {
+    /*pikachuFromApi = {
       "abilities": [{
           "ability": {
               "name": Ability["lightning-rod"],
@@ -108,7 +108,7 @@ describe('PokeApiService', () => {
               "url": "https://pokeapi.co/api/v2/stat/1/"
           }
       }]
-    }
+    }*/
   });
 
   it('should get pikachu', () => {

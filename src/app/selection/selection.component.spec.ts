@@ -8,10 +8,14 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
 import { MenuComponent } from '../menu/menu.component';
 import { FightComponent } from '../fight/fight.component';
 import { LogComponent } from '../log/log.component';
+import { Pikachu } from 'src/pokemons';
+import { of } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SelectionComponent', () => {
   let component: SelectionComponent;
   let fixture: ComponentFixture<SelectionComponent>;
+  let pokeApi: PokeApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,13 +26,20 @@ describe('SelectionComponent', () => {
         FightComponent,
         LogComponent
       ],
-      providers: [PokeApiService],
-      imports: [RouterTestingModule.withRoutes(routes)]
+      providers: [
+        PokeApiService
+      ],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule.withRoutes(routes)
+      ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
+    pokeApi = TestBed.get(PokeApiService);
+    jest.spyOn(pokeApi, 'getByKey').mockImplementation( key => of(Pikachu) );
     fixture = TestBed.createComponent(SelectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

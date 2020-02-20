@@ -29,7 +29,7 @@ export default class PokeApiService {
   }
 
   public getByKey(key: string | number): Observable<Pokemon> {
-    console.log('get', key)
+    //console.log('get', key)
     return this.http.get<PokemonDTO>(`${this.baseURL}/pokemon/${key}/`)
       .pipe(
         catchError(this.handleError),
