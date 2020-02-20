@@ -17,7 +17,7 @@ export class SelectionComponent implements OnInit {
   constructor(private router: Router, private pokeApiService: PokeApiService) { }
 
   ngOnInit(): void {
-	  this.pokeApiService.getRandomPokemons(20).subscribe((pokemons) => {
+	  this.pokeApiService.getRandomPokemons(30).subscribe((pokemons) => {
 		  this.allPokemons = pokemons
 	  })
   }
