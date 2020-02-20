@@ -34,14 +34,17 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   onClick(): void {
     if (this.on) {
-	  this.on = false;
-	  this.label = 'Start';
-	  this.gameService.pause();
+      this.on = false;
+	    this.gameService.pause();
     } else {
       this.on = true;	  
-	  this.label = 'Stop';
       this.gameService.play();
     }
+
+    if (this.on)
+      document.getElementById("action_button").src = "../../assets/images/shared/PAUSE.png"
+    else
+      document.getElementById("action_button").src = "../../assets/images/shared/FIGHT.png"
   }
 
   ngOnDestroy(): void {
