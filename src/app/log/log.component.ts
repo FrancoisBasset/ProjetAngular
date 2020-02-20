@@ -7,7 +7,6 @@ import { GameService } from '../services';
   styleUrls: ['./log.component.scss']
 })
 export class LogComponent implements OnInit {
-	text: string;
 
   constructor(public gameService: GameService) { }
 
