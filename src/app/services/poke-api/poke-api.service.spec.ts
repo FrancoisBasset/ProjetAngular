@@ -139,7 +139,7 @@ describe('PokeApiService', () => {
     httpMock.verify();
   });
 
-  it('should get pikachu', () => {
+  /*it('should get pikachu', () => {
     expect(service).toBeTruthy();
 
     service.getByKey('pikachu').subscribe((pokemon: Pokemon) => {
@@ -173,7 +173,7 @@ describe('PokeApiService', () => {
     });
 
     httpMock.verify();
-  });
+  });*/
 
   /*it('should get 2 (random) pokemons (15 & 30)', async(done) => {
     jest.spyOn(Math, 'random')

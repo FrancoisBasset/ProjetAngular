@@ -7,6 +7,10 @@ import { SelectionComponent } from '../selection/selection.component';
 import { PokemonComponent } from '../pokemon/pokemon.component';
 import { FightComponent } from '../fight/fight.component';
 import { LogComponent } from '../log/log.component';
+import { HealthBarComponent } from '../health-bar/health-bar.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DateToStringPipe } from '../shared/pipes/date-to-string.pipe';
+import { CodeToStringPipe } from '../shared/pipes/code-to-string.pipe';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -19,9 +23,15 @@ describe('MenuComponent', () => {
         PokemonComponent,
         MenuComponent,
         FightComponent,
-        LogComponent
+        LogComponent,
+        HealthBarComponent,
+        DateToStringPipe,
+        CodeToStringPipe
       ],
-      imports: [RouterTestingModule.withRoutes(routes)]
+      imports: [
+        MatProgressBarModule,
+        RouterTestingModule.withRoutes(routes)
+      ]
     })
     .compileComponents();
   }));

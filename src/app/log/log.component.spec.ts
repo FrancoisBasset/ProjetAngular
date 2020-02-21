@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LogComponent } from './log.component';
+import { DateToStringPipe } from '../shared/pipes/date-to-string.pipe';
+import { CodeToStringPipe } from '../shared/pipes/code-to-string.pipe';
 
 describe('LogComponent', () => {
   let component: LogComponent;
@@ -8,7 +10,11 @@ describe('LogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogComponent ]
+      declarations: [
+        LogComponent,
+        DateToStringPipe,
+        CodeToStringPipe
+      ]
     })
     .compileComponents();
   }));

@@ -4,25 +4,34 @@ import { FightComponent } from './fight.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { LogComponent } from '../log/log.component';
-import { PokeApiService } from '../services';
+import { PokeApiService, GameService } from '../services';
 import { Pikachu, Ditto } from 'src/pokemons';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ElementRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { HealthBarComponent } from '../health-bar/health-bar.component';
+import { DateToStringPipe } from '../shared/pipes/date-to-string.pipe';
+import { CodeToStringPipe } from '../shared/pipes/code-to-string.pipe';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 describe('FightComponent', () => {
   let component: FightComponent;
   let fixture: ComponentFixture<FightComponent>;
-  let view: ElementRef;
   let pokeApi: PokeApiService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         FightComponent,
-        LogComponent
+        LogComponent,
+        HealthBarComponent,
+        DateToStringPipe,
+        CodeToStringPipe
       ],
-      imports: [HttpClientTestingModule],
+      imports: [
+        HttpClientTestingModule,
+        MatProgressBarModule
+      ],
       providers: [
         PokeApiService,
         {
@@ -32,7 +41,8 @@ describe('FightComponent', () => {
               pokemonB: 'Ditto'
             })
           }
-        }
+        },
+        GameService
       ]
     })
     .compileComponents();
@@ -45,7 +55,6 @@ describe('FightComponent', () => {
       .mockImplementationOnce( key => of(Ditto) );
     fixture = TestBed.createComponent(FightComponent);
     component = fixture.componentInstance;
-    view = fixture.elementRef.nativeElement;
     fixture.detectChanges();
   });
 
@@ -58,7 +67,7 @@ describe('FightComponent', () => {
     expect(imageUrl).toContain('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png');
   });
 
-  it('should render as pokemonB (imageURL)', () => {
+  it('should render Ditto as pokemonB (imageURL)', () => {
     const imageUrl = fixture.debugElement.query(By.css('#pokemonB')).properties.src;
     expect(imageUrl).toContain('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png');
   });
