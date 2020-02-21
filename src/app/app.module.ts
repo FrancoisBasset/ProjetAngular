@@ -12,6 +12,7 @@ import { LogComponent } from './log/log.component';
 import { HealthBarComponent } from './health-bar/health-bar.component';
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CodeToStringPipe } from './shared/pipes/code-to-string.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     SelectionComponent,
     MenuComponent,
     LogComponent,
-    HealthBarComponent
+    HealthBarComponent,
+    CodeToStringPipe
   ],
   imports: [
     BrowserModule,
