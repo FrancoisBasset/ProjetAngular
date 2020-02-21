@@ -22,9 +22,9 @@ export class HealthBarComponent implements OnInit {
   }
 
   get color (): ThemePalette {
-    if ( this.value < 10 )
+    if ( this.value < 20 )
       return 'warn';
-    if ( this.value < 35 )
+    if ( this.value < 40 )
       return 'accent';
     return 'primary';
   }
