@@ -25,7 +25,7 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
       this.pokeApiService.getByKey(params.pokemonA).subscribe((p) => { console.log(p); this.gameService.pokemonA = p; this.gameService.pokemonA.color = 'green';})
 	  this.pokeApiService.getByKey(params.pokemonB).subscribe((p) => { console.log(p); this.gameService.pokemonB = p; this.gameService.pokemonB.color = 'blue';})
     })
-	//this.log = '';
+	this.gameService.fastest = null;
   }
 
   ngAfterViewChecked() {
