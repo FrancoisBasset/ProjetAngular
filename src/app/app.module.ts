@@ -9,6 +9,9 @@ import { FightComponent } from './fight/fight.component';
 import { SelectionComponent } from './selection/selection.component';
 import { MenuComponent } from './menu/menu.component';
 import { LogComponent } from './log/log.component';
+import { HealthBarComponent } from './health-bar/health-bar.component';
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { LogComponent } from './log/log.component';
     FightComponent,
     SelectionComponent,
     MenuComponent,
-    LogComponent
+    LogComponent,
+    HealthBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

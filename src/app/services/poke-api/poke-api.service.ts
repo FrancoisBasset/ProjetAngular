@@ -4,7 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, throwError, of, forkJoin } from 'rxjs';
 
 import { Pokemon, PokemonDTO } from 'src/app/models';
-import { randomIntLessThan } from 'src/app/utils/utils'
+import { randomIntLessThan, randomIntInterval } from 'src/app/utils/utils'
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +44,7 @@ export default class PokeApiService {
     let random: number;
     for ( let i = 0 ; i < nb ; i++ ) {
       do {
-        random = randomIntLessThan(this.nbTotalPokemons);
+        random = randomIntInterval(1, this.nbTotalPokemons); // id=0 n'existe pas
       } while ( processedIds.includes(random));
       requests.push(this.getByKey(random));
     }

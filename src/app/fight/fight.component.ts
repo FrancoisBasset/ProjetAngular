@@ -11,7 +11,7 @@ import { GameService, PokeApiService } from 'src/app/services';
 })
 export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
   on: boolean = false;
-  label: string = 'Start';
+  actionBtnSrc: string = '../../assets/images/shared/FIGHT.png'
 
   constructor(private route: ActivatedRoute, public gameService: GameService, private pokeApiService: PokeApiService) { }
 
@@ -34,14 +34,17 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   onClick(): void {
     if (this.on) {
-	  this.on = false;
-	  this.label = 'Start';
-	  this.gameService.pause();
+      this.on = false;
+	    this.gameService.pause();
     } else {
       this.on = true;	  
-	  this.label = 'Stop';
       this.gameService.play();
     }
+
+    if (this.on)
+      this.actionBtnSrc =  "../../assets/images/shared/PAUSE.png"
+    else
+      this.actionBtnSrc = "../../assets/images/shared/FIGHT.png"
   }
 
   ngOnDestroy(): void {

@@ -1,12 +1,12 @@
 <div class="row">
 	<img class="background_battle" src="../../assets/images/shared/background_battle.png" />
-	<img class="superpose" id="pokemonA" src="{{gameService.pokemonA.backSpriteUrl}}" alt="Pokemon A">
-	<img class="superpose" id="pokemonB" src="{{gameService.pokemonB.frontSpriteUrl}}" alt="Pokemon B">
+	<img class="superpose" id="pokemonA" [src]="gameService.pokemonA?.backSpriteUrl" alt="Pokemon A">
+	<img class="superpose" id="pokemonB" [src]="gameService.pokemonB?.frontSpriteUrl" alt="Pokemon B">
 </div>
 <div class="row-log">
 	<log id="log"></log>
 </div>
 <br/>
 <div class="row">
-	<button id="startStop" (click)="onClick()">{{label}}</button>
+	<img id="action_button" (click)="onClick()" [src]="actionBtnSrc">
 </div>
