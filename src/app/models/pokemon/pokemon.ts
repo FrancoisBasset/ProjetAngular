@@ -23,13 +23,8 @@ export class Pokemon {
     backSpriteUrl: string;
     health: number;
     paralyzed: boolean;
-<<<<<<< HEAD
-	basePower: number;//
-	//custom: boolean;
-=======
     basePower: number;
     animate: boolean;
->>>>>>> 49fcfe4aa1afa2b5e0c739728fc6b5889b1d3458
 
     constructor (i?: PokemonInterface)
     {
@@ -49,13 +44,8 @@ export class Pokemon {
         this.frontSpriteUrl = i && i.frontSpriteUrl;
         this.backSpriteUrl = i && i.backSpriteUrl;
         this.basePower = i && i.basePower;
-<<<<<<< HEAD
-		this.health = this.maxHealth;
-		//this.custom = false;
-=======
         this.health = this.maxHealth;
         this.animate = false;
->>>>>>> 49fcfe4aa1afa2b5e0c739728fc6b5889b1d3458
     }
 
     // Manque couleur !

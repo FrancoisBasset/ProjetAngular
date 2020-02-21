@@ -78,7 +78,7 @@ export class SelectionComponent implements OnInit {
 			  Item.ClawFossil
 		  ];
 		  newPokemon.attacks = [
-			  new Attack('', 5)
+			  //new Attack('', 5)
 		  ];
 
 		  //console.log(newPokemon.getRandomAttack());

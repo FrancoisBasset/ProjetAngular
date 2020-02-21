@@ -14,6 +14,7 @@ import { HealthBarComponent } from './health-bar/health-bar.component';
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CodeToStringPipe } from './shared/pipes/code-to-string.pipe';
+import { DateToStringPipe } from './shared/pipes/date-to-string.pipe';
 import { CreationComponent } from './creation/creation.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
 
@@ -27,7 +28,8 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/d
     LogComponent,
     HealthBarComponent,
     CodeToStringPipe,
-    CreationComponent
+    CreationComponent,
+    DateToStringPipe
   ],
   entryComponents: [
 	  CreationComponent
