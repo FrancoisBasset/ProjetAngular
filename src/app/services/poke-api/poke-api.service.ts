@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Observable, throwError, of, forkJoin } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { Observable, throwError, forkJoin } from 'rxjs';
 
-import { Pokemon, PokemonDTO } from 'src/app/models';
-import { randomIntLessThan, randomIntInterval } from 'src/app/utils/utils'
+import { Pokemon, PokemonDTO, AttackDTO, Attack } from 'src/app/models';
+import { randomIntInterval } from 'src/app/utils/utils'
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +28,39 @@ export default class PokeApiService {
     return throwError(errorMessage);
   }
 
-  public getByKey(key: string | number): Observable<Pokemon> {
+  public getByKeyWithoutAttacks(key: string | number): Observable<Pokemon> {
     //console.log('get', key)
     return this.http.get<PokemonDTO>(`${this.baseURL}/pokemon/${key}/`)
       .pipe(
         catchError(this.handleError),
         //tap(console.log),
         map(p => Pokemon.fromDto(p))
+      )
+  }
+
+  // with attacks
+  public getByKey(key: string | number): Observable<Pokemon> {
+    //console.log('get', key)
+    return new Observable<Pokemon>( observer => {
+
+      this.getByKeyWithoutAttacks(key).subscribe(
+        (pokemon: Pokemon) => {
+          const attacksRequests: Observable<Attack>[] = pokemon.attacks.map(attack => this.getMoveByUrl(attack.url));
+          forkJoin(attacksRequests).subscribe( (attacks: Attack[]) => {
+            pokemon.attacks = attacks.filter(attack => attack.basePower !== null).slice(0, 4); // on ne garde que 4 attaques
+            observer.next(pokemon);
+          })
+        }),
+        err => observer.error(err),
+        () => observer.complete();
+      });
+  }
+
+  public getMoveByUrl(url: string): Observable<Attack> {
+    return this.http.get<AttackDTO>(url)
+      .pipe(
+        catchError(this.handleError),
+        map(dto => Attack.fromDto(dto))
       )
   }
 
@@ -46,7 +72,7 @@ export default class PokeApiService {
       do {
         random = randomIntInterval(1, this.nbTotalPokemons); // id=0 n'existe pas
       } while ( processedIds.includes(random));
-      requests.push(this.getByKey(random));
+      requests.push(this.getByKeyWithoutAttacks(random));
     }
     return forkJoin(requests);
   }

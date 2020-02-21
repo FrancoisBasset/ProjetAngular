@@ -1,23 +1,37 @@
-#pokemonA {
+.pokemonA {
 	left: 35%;
 	top: 55%;
 }
 
-#pokemonB {
+.pokemonA-animate {
+	left: 35%;
+	top: 55%;
+	transform: translate(60%) rotate(-20deg);
+}
+
+.pokemonB {
 	top: 20%;
 	right: 35%;
 }
 
+.pokemonB-animate {
+	top: 20%;
+	right: 35%;
+	transform: translate(-60%) rotate(20deg);
+}
+
 #health-bar-A {
+	width: 20%;
 	position: absolute;
-	left: 37%;
-	top: 55%;
+	left: 34%;
+	top: 53%;
 }
 
 #health-bar-B {
+	width: 20%;
 	position: absolute;
-	top: 20%;
-	right: 37%;
+	top: 18%;
+	right: 26%;
 }
 
 .row {
@@ -32,13 +46,18 @@
 	text-align: center;
 }
 
-.superpose {
+#superpose {
 	position: absolute;
 	width:10%;
 }
 
 #action_button {
 	width: 18%;
+	cursor: pointer;
+}
+
+#replay_button {
+	width: 8%;
 	cursor: pointer;
 }
 
@@ -60,16 +79,15 @@
 
 .death-head {
 	position: absolute;
-	width: 100px;
-	height: 100px;
+	width: 5%;
 }
 
 #death-head-A {
 	left: 38%;
-	top: 61%;
+	top: 64%;
 }
 
 #death-head-B {
-	top: 26%;
+	top: 30%;
 	right: 38%;
 }

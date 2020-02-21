@@ -18,7 +18,8 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   autoScroll(): void {
     let myDiv = document.getElementById("logBox");
-    myDiv.scrollTop = myDiv.scrollHeight - myDiv.offsetHeight;
+    if (myDiv)
+      myDiv.scrollTop = myDiv.scrollHeight - myDiv.offsetHeight;
   }
 
   ngOnInit(): void {
@@ -54,13 +55,43 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
       this.gameService.play();
     }
 
-    if (this.on)
-      this.actionBtnSrc =  "../../assets/images/shared/PAUSE.png"
-    else
-      this.actionBtnSrc = "../../assets/images/shared/FIGHT.png"
+      if (this.on)
+        this.actionBtnSrc =  "../../assets/images/shared/PAUSE.png"
+      else
+        this.actionBtnSrc = "../../assets/images/shared/FIGHT.png"
+    }
+
+  replay(): void {
+    this.on = false
+    this.actionBtnSrc = "../../assets/images/shared/FIGHT.png"
+    this.gameService.replay();
   }
 
   ngOnDestroy(): void {
     this.gameService.pause();
+  }
+
+  get pokemonA_animation() {
+    if (this.gameService.pokemonA)
+      if (this.gameService.pokemonA.animate) {
+        setTimeout(() => {
+          this.gameService.pokemonA.animate = false
+        }, 100)
+        return true
+      }
+    else
+      return false
+  }
+
+  get pokemonB_animation() {
+    if (this.gameService.pokemonB)
+      if (this.gameService.pokemonB.animate) {
+        setTimeout(() => {
+          this.gameService.pokemonB.animate = false
+        }, 100)
+        return true
+      }
+    else
+      return false
   }
 }

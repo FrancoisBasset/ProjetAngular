@@ -9,11 +9,11 @@ import { LogService } from '../../log.service';
 })
 
 export default class GameService {
-    intervalId: any;
+  intervalId: any;
 	fastestToAttack = true;
 	public pokemonA: Pokemon;
-    public pokemonB: Pokemon;
-    public attackServices: AttackService = new AttackService();
+  public pokemonB: Pokemon;
+  public attackServices: AttackService = new AttackService();
 	public speedServices: SpeedService =new SpeedService();
 	public fastest: Pokemon;
 	public attacker: Pokemon;
@@ -29,10 +29,10 @@ export default class GameService {
 			this.fastest = this.speedServices.getFastest(this.pokemonA, this.pokemonB);
 			if (this.fastest == this.pokemonA) {
 				this.attacker = this.pokemonA;
-				this.target = this.pokemonB;
+        this.target = this.pokemonB;
 			} else {
 				this.attacker = this.pokemonB;
-				this.target = this.pokemonA;
+        this.target = this.pokemonA;
 			}
 		} else {
 			let tmp = this.attacker;
@@ -45,6 +45,7 @@ export default class GameService {
 		let target = ( attacker === this.pokemonA ? this.pokemonB : this.pokemonA );*/
 
         let attack = this.attacker.getRandomAttack();
+        this.attacker.animate = true;
         let damages = this.attackServices.attack(this.attacker, attack, this.target);
         this.logService.attack(this.attacker, attack.name, this.target, damages);
 
@@ -62,5 +63,20 @@ export default class GameService {
 
     public pause () {
 		clearInterval(this.intervalId);
+    }
+
+    get endOfBattle() {
+      if (this.pokemonA && this.pokemonB) {
+        if (this.pokemonA.health <= 0 || this.pokemonB.health <= 0)
+          return true
+      }
+      else
+        return false
+    }
+
+    public replay(): void {
+      this.logService.reinit();
+      this.pokemonA.reinit();
+      this.pokemonB.reinit();
     }
 }

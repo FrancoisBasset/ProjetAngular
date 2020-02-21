@@ -1,5 +1,6 @@
 <!--<textarea id="logBox" readonly>{{logService.log}}</textarea>-->
 <div id="logBox">
+	<div>{{date | dateToString }}</div><br>
 	<div *ngFor="let log of logService.log">
 		<label *ngIf="log.end == false">
 			<span [style.color]="log.attackerColor">{{log.attackerName}}</span> utilise l'attaque {{log.attack | codeToString }}<br>

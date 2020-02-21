@@ -1,5 +1,5 @@
 import { Ability } from '../Ability';
-import Attack from '../Attack';
+import { Attack } from '../attack/attack';
 import { Item } from '../Item';
 import { randomIntLessThan } from 'src/app/utils/utils'
 import { PokemonInterface } from './pokemon-interface';
@@ -23,8 +23,13 @@ export class Pokemon {
     backSpriteUrl: string;
     health: number;
     paralyzed: boolean;
+<<<<<<< HEAD
 	basePower: number;//
 	//custom: boolean;
+=======
+    basePower: number;
+    animate: boolean;
+>>>>>>> 49fcfe4aa1afa2b5e0c739728fc6b5889b1d3458
 
     constructor (i?: PokemonInterface)
     {
@@ -44,8 +49,13 @@ export class Pokemon {
         this.frontSpriteUrl = i && i.frontSpriteUrl;
         this.backSpriteUrl = i && i.backSpriteUrl;
         this.basePower = i && i.basePower;
+<<<<<<< HEAD
 		this.health = this.maxHealth;
 		//this.custom = false;
+=======
+        this.health = this.maxHealth;
+        this.animate = false;
+>>>>>>> 49fcfe4aa1afa2b5e0c739728fc6b5889b1d3458
     }
 
     // Manque couleur !
@@ -56,7 +66,12 @@ export class Pokemon {
         let items = dto.held_items
             .map(i => i.item.name);
         let attacks = dto.moves
-            .map(m => new Attack(m.move.name, 1));
+            .slice(0, 8) // on garde seulement 4 attaques après ; on en prend ici 8 au cas où certaines ont une puissance à null
+            .map(m => new Attack({
+                name: m.move.name,
+                url: m.move.url,
+                basePower: 1 // par défaut, défini après
+            }));
         let speed = dto.stats.find( s => s.stat.name === 'speed').base_stat;
         let hp = dto.stats.find( s => s.stat.name === 'hp').base_stat;
         let offStat = dto.stats.find( s => s.stat.name === 'attack').base_stat;
@@ -66,7 +81,7 @@ export class Pokemon {
         return new Pokemon({
             id: dto.id,
             name: dto.name,
-            level: 500,
+            level: 10,
             speed: speed,
             offStat: offStat,
             defStat: defStat,
@@ -79,7 +94,7 @@ export class Pokemon {
             color: '',
             frontSpriteUrl: dto.sprites.front_default,
             backSpriteUrl: dto.sprites.back_default,
-            basePower: dto.base_experience
+            animate: false
         });
 
     }
@@ -89,6 +104,10 @@ export class Pokemon {
         if ( this.health < 0 ) {
             this.health = 0
         }
+    }
+
+    public reinit (): void {
+        this.health = this.maxHealth;
     }
 
     public getRandomAttack (): Attack {

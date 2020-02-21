@@ -1,11 +1,11 @@
 <div class="row">
 	<img class="background_battle" src="../../assets/images/shared/background_battle.png" />
 
-	<img class="superpose" id="pokemonA" [src]="gameService.pokemonA?.backSpriteUrl" alt="Pokemon A">
+	<img id="superpose" [ngClass]="{'pokemonA': !pokemonA_animation, 'pokemonA-animate': pokemonA_animation}" [src]="gameService.pokemonA?.backSpriteUrl" alt="Pokemon A" [hidden]="gameService.pokemonA?.health == 0">
 	<app-health-bar id="health-bar-A" [health]="gameService.pokemonA?.health" [maxHealth]="gameService.pokemonA?.maxHealth"></app-health-bar>
 	<img class="death-head" id="death-head-A" src="../assets/images/shared/death-head.png" [hidden]="gameService.pokemonA?.health != 0">
 
-	<img class="superpose" id="pokemonB" [src]="gameService.pokemonB?.frontSpriteUrl" alt="Pokemon B">
+	<img id="superpose" [ngClass]="{'pokemonB': !pokemonB_animation, 'pokemonB-animate': pokemonB_animation}" [src]="gameService.pokemonB?.frontSpriteUrl" alt="Pokemon B" [hidden]="gameService.pokemonB?.health == 0">
 	<app-health-bar id="health-bar-B" [health]="gameService.pokemonB?.health" [maxHealth]="gameService.pokemonB?.maxHealth"></app-health-bar>
 	<img class="death-head" id="death-head-B" src="../assets/images/shared/death-head.png" [hidden]="gameService.pokemonB?.health != 0">
 </div>
@@ -14,5 +14,6 @@
 </div>
 <br/>
 <div class="row">
-	<img id="action_button" (click)="onClick()" [src]="actionBtnSrc">
+	<img id="action_button" (click)="onClick()" [src]="actionBtnSrc" [hidden]="gameService.endOfBattle">
+	<img id="replay_button" (click)="replay()" src="../../assets/images/shared/reload.png" [hidden]="!gameService.endOfBattle">
 </div>
