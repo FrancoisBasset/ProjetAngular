@@ -12,18 +12,19 @@ export class Pokemon {
     speed: number;
     offStat: number;
     defStat: number;
-    specOffStat: number;
-    specDefStat: number;
+    specOffStat: number;//
+    specDefStat: number;//
     maxHealth: number;
     attacks: Attack[];
-    abilities: Ability[];
-    items: Item[];
+    abilities: Ability[];//
+    items: Item[];//
     color: string;
     frontSpriteUrl: string;
     backSpriteUrl: string;
     health: number;
     paralyzed: boolean;
-    basePower: number;
+	basePower: number;//
+	//custom: boolean;
 
     constructor (i?: PokemonInterface)
     {
@@ -43,7 +44,8 @@ export class Pokemon {
         this.frontSpriteUrl = i && i.frontSpriteUrl;
         this.backSpriteUrl = i && i.backSpriteUrl;
         this.basePower = i && i.basePower;
-        this.health = this.maxHealth;
+		this.health = this.maxHealth;
+		//this.custom = false;
     }
 
     // Manque couleur !
