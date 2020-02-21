@@ -17,7 +17,8 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   autoScroll(): void {
     let myDiv = document.getElementById("logBox");
-    myDiv.scrollTop = myDiv.scrollHeight - myDiv.offsetHeight;
+    if (myDiv)
+      myDiv.scrollTop = myDiv.scrollHeight - myDiv.offsetHeight;
   }
 
   ngOnInit(): void {

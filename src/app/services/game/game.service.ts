@@ -75,6 +75,7 @@ export default class GameService {
     }
 
     public replay(): void {
+      this.logService.reinit();
       this.pokemonA.reinit();
       this.pokemonB.reinit();
     }
