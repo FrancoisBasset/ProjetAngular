@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Pokemon } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +10,25 @@ export class LogService {
 
   constructor() { }
 
-  public attack(attacker: string, attackName: string, target: string, damages: number, health: number): void {
+  public attack(attacker: Pokemon, attackName: string, target: Pokemon, damages: number): void {
 	  //this.log += `${attacker} utilise l'attaque ${attackName}\n`;
 	  //this.log += `${target} perd ${damages} (${health} PV restants)\n\n`;
 
 	  this.log.push({
-		  'attacker': attacker,
+		  'attackerName': attacker.name,
+		  'attackerColor': attacker.color,
 		  'attack': attackName,
-		  'target': target,
+		  'targetName': target.name,
+		  'targetColor': target.color,
+		  'targetHealth': target.health,
 		  'damages': damages,
-		  'health': health,
 		  'end': false
 	  });
 
 	  //console.log(this.log);
   }
 
-  public endOfBattle(attacker: string, target: string): void {
+  public endOfBattle(attacker: Pokemon, target: Pokemon): void {
 	  //this.log += `${target} n'a plus de PV\n`;
 	  //this.log += `${attacker} remporte le combat`;
 

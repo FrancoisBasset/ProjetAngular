@@ -15,6 +15,9 @@ export default class GameService {
     public pokemonB: Pokemon;
     public attackServices: AttackService = new AttackService();
 	public speedServices: SpeedService =new SpeedService();
+	public fastest: Pokemon;
+	public attacker: Pokemon;
+	public target: Pokemon;
 
     constructor(
 		public logService: LogService
@@ -22,16 +25,31 @@ export default class GameService {
     {}
 
     private demiRound() {
-        let fastest = this.speedServices.getFastest(this.pokemonA, this.pokemonB);
-        let attacker = ( fastest === this.pokemonA  && this.fastestToAttack ? this.pokemonA : this.pokemonB );
-		let target = ( attacker === this.pokemonA ? this.pokemonB : this.pokemonA );
+		if (this.fastest == null) {
+			this.fastest = this.speedServices.getFastest(this.pokemonA, this.pokemonB);
+			if (this.fastest == this.pokemonA) {
+				this.attacker = this.pokemonA;
+				this.target = this.pokemonB;
+			} else {
+				this.attacker = this.pokemonB;
+				this.target = this.pokemonA;
+			}
+		} else {
+			let tmp = this.attacker;
+			this.attacker = this.target;
+			this.target = tmp;
+		}
 
-        let attack = attacker.getRandomAttack();
-        let damages = this.attackServices.attack(attacker, attack, target);
-        this.logService.attack(attacker.name, attack.name, target.name, damages, target.health);
 
-        if ( target.health <= 0 ) {
-            this.logService.endOfBattle(attacker.name, target.name);
+        /*let attacker = ( fastest === this.pokemonA  && this.fastestToAttack ? this.pokemonA : this.pokemonB );
+		let target = ( attacker === this.pokemonA ? this.pokemonB : this.pokemonA );*/
+
+        let attack = this.attacker.getRandomAttack();
+        let damages = this.attackServices.attack(this.attacker, attack, this.target);
+        this.logService.attack(this.attacker, attack.name, this.target, damages);
+
+        if ( this.target.health <= 0 ) {
+            this.logService.endOfBattle(this.attacker, this.target);
             clearInterval(this.intervalId);
         }
 

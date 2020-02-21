@@ -2,12 +2,12 @@
 <div id="logBox">
 	<div *ngFor="let log of logService.log">
 		<label *ngIf="log.end == false">
-			<span style="color: blue;">{{log.attacker}}</span> utilise l'attaque {{log.attack}}<br>
-			<span style="color: green;">{{log.target}}</span> perd {{log.damages}} ({{log.health}} PV restants)
+			<span [style.color]="log.attackerColor">{{log.attackerName}}</span> utilise l'attaque {{log.attack}}<br>
+			<span [style.color]="log.targetColor">{{log.targetName}}</span> perd {{log.damages}} ({{log.targetHealth}} PV restants)
 		</label>
 		<label *ngIf="log.end == true">
-			<span style="color: red;">{{log.target}}</span> n'a plus de PV<br>
-			{{log.attacker}} remporte le combat
+			<span style="color: red;">{{log.targetName}}</span> n'a plus de PV<br>
+			<span [style.color]="log.attackerColor">{{log.attackerName}}</span> remporte le combat
 		</label><br><br>
 	</div>
 </div>
