@@ -111,35 +111,65 @@ describe('PokeApiService', () => {
     }*/
   });
 
-  it('should get pikachu', () => {
+  it('should get pikachu, without attacks', () => {
     expect(service).toBeTruthy();
 
-    service.getByKey('pikachu').subscribe((pokemon: Pokemon) => {
+    service.getByKeyWithoutAttacks('pikachu').subscribe((pokemon: Pokemon) => {
       expect(pokemon.name).toBe('Pikachu');
     });
 
-    const req = httpMock.expectOne(`${service.baseURL}/pokemon/pikachu/`);
-    expect(req.request.method).toBe('GET');
-
-    req.flush({
+    httpMock.expectOne(`${service.baseURL}/pokemon/pikachu/`).flush({
       name: "Pikachu"
     });
 
     httpMock.verify();
   });
 
-  it('should get pokemon with id 1', () => {
+  it('should get pokemon with id 1, without attacks', () => {
     expect(service).toBeTruthy();
 
-    service.getByKey(1).subscribe((pokemon: Pokemon) => {
+    service.getByKeyWithoutAttacks(1).subscribe((pokemon: Pokemon) => {
       expect(pokemon.name).toBe('Pikachu');
     });
 
-    const req = httpMock.expectOne(`${service.baseURL}/pokemon/1/`);
-    expect(req.request.method).toBe('GET');
-
-    req.flush({
+    httpMock.expectOne(`${service.baseURL}/pokemon/1/`).flush({
       id: 1
+    });
+
+    httpMock.verify();
+  });
+
+  it('should get pikachu', () => {
+    expect(service).toBeTruthy();
+
+    service.getByKey('pikachu').subscribe((pokemon: Pokemon) => {
+      console.log('res=', pokemon)
+      expect(pokemon.name).toBe('Pikachu');
+      expect(pokemon.attacks.length).toBe(1);
+      expect(pokemon.attacks[0].basePower).toBe(10);
+    }, err => console.log('errrrrrrrrrrrrrr', err));
+
+    httpMock.expectOne(`${service.baseURL}/pokemon/pikachu/`).flush({
+      name: "Pikachu",
+      moves: [
+        {
+          move: {
+            name: 'Eclair',
+            url: `${service.baseURL}/move/1/`
+          }
+        }
+      ]
+    });
+    httpMock.expectOne(`${service.baseURL}/move/1/`).flush({
+      power: 10,
+      names: [
+        {
+          name: 'Eclair',
+          language: {
+            name: 'fr'
+          }
+        }
+      ]
     });
 
     httpMock.verify();
