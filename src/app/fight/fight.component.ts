@@ -48,6 +48,8 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
 
   replay(): void {
+    this.on = false
+    this.actionBtnSrc = "../../assets/images/shared/FIGHT.png"
     this.gameService.replay();
   }
 
