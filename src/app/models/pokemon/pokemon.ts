@@ -64,7 +64,7 @@ export class Pokemon {
         return new Pokemon({
             id: dto.id,
             name: dto.name,
-            level: 500,
+            level: 3000,
             speed: speed,
             offStat: offStat,
             defStat: defStat,
