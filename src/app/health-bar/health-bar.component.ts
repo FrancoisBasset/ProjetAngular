@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-health-bar',
@@ -6,11 +7,26 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./health-bar.component.scss']
 })
 export class HealthBarComponent implements OnInit {
-  @Input() health: number = 40;
+  @Input() health: number;
+  @Input() maxHealth: number;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  get value() {
+    if ( this.health && this.maxHealth )
+      return this.health * 100 / this.maxHealth;
+    return 0;
+  }
+
+  get color (): ThemePalette {
+    if ( this.value < 10 )
+      return 'warn';
+    if ( this.value < 35 )
+      return 'accent';
+    return 'primary';
   }
 
 }
