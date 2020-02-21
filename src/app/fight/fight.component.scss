@@ -1,11 +1,23 @@
-#pokemonA {
+.pokemonA {
 	left: 35%;
 	top: 55%;
 }
 
-#pokemonB {
+.pokemonA-animate {
+	left: 35%;
+	top: 55%;
+	transform: translate(60%) rotate(-20deg);
+}
+
+.pokemonB {
 	top: 20%;
 	right: 35%;
+}
+
+.pokemonB-animate {
+	top: 20%;
+	right: 35%;
+	transform: translate(-60%) rotate(20deg);
 }
 
 #health-bar-A {
@@ -34,7 +46,7 @@
 	text-align: center;
 }
 
-.superpose {
+#superpose {
 	position: absolute;
 	width:10%;
 }

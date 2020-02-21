@@ -50,4 +50,28 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
   ngOnDestroy(): void {
     this.gameService.pause();
   }
+
+  get pokemonA_animation() {
+    if (this.gameService.pokemonA)
+      if (this.gameService.pokemonA.test) {
+        setTimeout(() => {
+          this.gameService.pokemonA.test = false
+        }, 100)
+        return true
+      }
+    else
+      return false
+  }
+
+  get pokemonB_animation() {
+    if (this.gameService.pokemonB)
+      if (this.gameService.pokemonB.test) {
+        setTimeout(() => {
+          this.gameService.pokemonB.test = false
+        }, 100)
+        return true
+      }
+    else
+      return false
+  }
 }

@@ -24,6 +24,7 @@ export class Pokemon {
     health: number;
     paralyzed: boolean;
     basePower: number;
+    test: boolean;
 
     constructor (i?: PokemonInterface)
     {
@@ -44,6 +45,7 @@ export class Pokemon {
         this.backSpriteUrl = i && i.backSpriteUrl;
         this.basePower = i && i.basePower;
         this.health = this.maxHealth;
+        this.test = false;
     }
 
     // Manque couleur !
@@ -77,7 +79,8 @@ export class Pokemon {
             color: '',
             frontSpriteUrl: dto.sprites.front_default,
             backSpriteUrl: dto.sprites.back_default,
-            basePower: dto.base_experience
+            basePower: dto.base_experience,
+            test: false
         });
 
     }
