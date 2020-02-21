@@ -15,5 +15,5 @@
 <br/>
 <div class="row">
 	<img id="action_button" (click)="onClick()" [src]="actionBtnSrc" [hidden]="gameService.endOfBattle">
-	<img id="replay_button" src="../../assets/images/shared/reload.png" [hidden]="!gameService.endOfBattle">
+	<img id="replay_button" (click)="replay()" src="../../assets/images/shared/reload.png" [hidden]="!gameService.endOfBattle">
 </div>

@@ -96,10 +96,10 @@ export class Pokemon {
         }
     }
 
-    public reinit (pokemon: Pokemon): Pokemon {
+    public reinit (): Pokemon {
         let newPokemon: Pokemon;
-        Object.assign(newPokemon, pokemon);
-        newPokemon.health = pokemon.maxHealth;
+        Object.assign(newPokemon, this);
+        newPokemon.health = this.maxHealth;
         return newPokemon;
     }
 
