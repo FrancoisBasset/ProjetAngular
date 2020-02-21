@@ -8,9 +8,13 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
 import { MenuComponent } from '../menu/menu.component';
 import { FightComponent } from '../fight/fight.component';
 import { LogComponent } from '../log/log.component';
-import { Pikachu } from 'src/pokemons';
+import { Pikachu, Ditto } from 'src/pokemons';
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HealthBarComponent } from '../health-bar/health-bar.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DateToStringPipe } from '../shared/pipes/date-to-string.pipe';
+import { CodeToStringPipe } from '../shared/pipes/code-to-string.pipe';
 
 describe('SelectionComponent', () => {
   let component: SelectionComponent;
@@ -25,13 +29,17 @@ describe('SelectionComponent', () => {
         PokemonComponent,
         MenuComponent,
         FightComponent,
-        LogComponent
+        LogComponent,
+        HealthBarComponent,
+        DateToStringPipe,
+        CodeToStringPipe
       ],
       providers: [
         PokeApiService
       ],
       imports: [
         HttpClientTestingModule,
+        MatProgressBarModule,
         RouterTestingModule.withRoutes(routes)
       ]
     })
@@ -40,9 +48,9 @@ describe('SelectionComponent', () => {
 
   beforeEach(() => {
     pokeApi = TestBed.get(PokeApiService);
-    jest.spyOn(pokeApi, 'getByKey').mockImplementation( key => of(Pikachu) );
+    jest.spyOn(pokeApi, 'getRandomPokemons').mockImplementation( key => of([Pikachu, Ditto]) );
     fixture = TestBed.createComponent(SelectionComponent);
-    view = fixture.elementRef.nativeElement;
+    view = fixture.nativeElement;
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -53,5 +61,9 @@ describe('SelectionComponent', () => {
 
   it('should contain Pikachu (image URL)', () => {
     expect(view.innerHTML).toContain('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png');
+  });
+
+  it('should contain Ditto (image URL)', () => {
+    expect(view.innerHTML).toContain('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png');
   });
 });
