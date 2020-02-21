@@ -96,6 +96,13 @@ export class Pokemon {
         }
     }
 
+    public reinit (pokemon: Pokemon): Pokemon {
+        let newPokemon: Pokemon;
+        Object.assign(newPokemon, pokemon);
+        newPokemon.health = pokemon.maxHealth;
+        return newPokemon;
+    }
+
     public getRandomAttack (): Attack {
         return this.attacks[randomIntLessThan(this.attacks.length)]
     }
