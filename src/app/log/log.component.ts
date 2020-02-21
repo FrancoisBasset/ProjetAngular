@@ -7,11 +7,14 @@ import { LogService } from '../log.service';
   styleUrls: ['./log.component.scss']
 })
 export class LogComponent implements OnInit {
+  date: Date = new Date();
 
   constructor(public logService: LogService) { }
 
   ngOnInit(): void {
-	  this.logService.log = [];
+	  this.logService.log = [
+
+    ];
   }
 
 }

@@ -1,6 +1,6 @@
 import { Ability, Item } from '..';
 
-export class AbilityDTO {
+export class PokemonAbilityDTO {
     is_hidden: boolean
     ability: {
         name: Ability
@@ -9,21 +9,21 @@ export class AbilityDTO {
     slot: number
 }
 
-export class ItemDTO {
+export class PokemonItemDTO {
     item: {
         name: Item
         url: string
     }
 }
 
-export class MoveDTO {
+export class PokemonMoveDTO {
     move: {
         name: string
         url: string
     }
 }
 
-export class StatDTO {
+export class PokemonStatDTO {
     stat: {
         name: 'hp' | 'speed' | 'attack' | 'defense' | 'special-attack' | 'special-defense'
         url: string
@@ -46,8 +46,8 @@ export class PokemonDTO {
         front_shiny: string
         front_shiny_female: string
     }
-    abilities: AbilityDTO[]
-    held_items: ItemDTO[]
-    moves: MoveDTO[]
-    stats: StatDTO[]
+    abilities: PokemonAbilityDTO[]
+    held_items: PokemonItemDTO[]
+    moves: PokemonMoveDTO[]
+    stats: PokemonStatDTO[]
 }

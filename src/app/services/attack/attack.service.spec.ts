@@ -10,8 +10,14 @@ describe('AttackServices logic service', () => {
   let attackServices: AttackService;
 
   beforeEach( () => {
-    eclair = new Attack('Eclair', 40)
-    deflagration = new Attack('Déflagration', 35)
+    eclair = new Attack({
+      name: 'Eclair',
+      basePower: 40
+    });
+    deflagration = new Attack({
+      name: 'Déflagration',
+      basePower: 35
+    });
 
     pikachu = Pikachu;
     ditto = Ditto;

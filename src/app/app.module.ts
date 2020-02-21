@@ -13,6 +13,7 @@ import { HealthBarComponent } from './health-bar/health-bar.component';
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CodeToStringPipe } from './shared/pipes/code-to-string.pipe';
+import { DateToStringPipe } from './shared/pipes/date-to-string.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CodeToStringPipe } from './shared/pipes/code-to-string.pipe';
     MenuComponent,
     LogComponent,
     HealthBarComponent,
-    CodeToStringPipe
+    CodeToStringPipe,
+    DateToStringPipe
   ],
   imports: [
     BrowserModule,

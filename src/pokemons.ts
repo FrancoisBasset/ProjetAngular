@@ -10,10 +10,22 @@ export var Pikachu = new Pokemon({
 	specDefStat: 50,
 	maxHealth: 30,
 	attacks: [
-		new Attack('Eclair', 40),
-		new Attack('Charge', 20),
-		new Attack('Tonnerre', 60),
-		new Attack('Rugissement', 1)
+		new Attack({
+			name: 'Eclair',
+			basePower: 40
+		}),
+		new Attack({
+			name: 'Charge',
+			basePower: 20
+		}),
+		new Attack({
+			name: 'Tonnerre',
+			basePower: 60
+		}),
+		new Attack({
+			name: 'Rugissement',
+			basePower: 1
+		})
 	],
 	abilities: [
 		Ability.Tailwind
@@ -37,10 +49,22 @@ export var Ditto = new Pokemon({
 	specDefStat: 48,
 	maxHealth: 48,
 	attacks: [
-		new Attack('Charge', 5),
-		new Attack('Flammèche', 25),
-		new Attack('Lèchouille', 75),
-		new Attack('Déflagration', 40)
+		new Attack({
+			name: 'Charge',
+			basePower: 5
+		}),
+		new Attack({
+			name: 'Flammèche',
+			basePower: 25
+		}),
+		new Attack({
+			name: 'Lèchouille',
+			basePower: 75
+		}),
+		new Attack({
+			name: 'Déflagration',
+			basePower: 40
+		})
 	],
 	abilities: [
 		Ability.SandRush
