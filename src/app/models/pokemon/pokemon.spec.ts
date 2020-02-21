@@ -6,7 +6,10 @@ describe('Pokemon logic model', () => {
   let MathRandom: () => number;
 
   beforeEach( () => {
-    charge = new Attack('Charge', 5);
+    charge = new Attack({
+      name: 'Charge',
+      basePower: 5
+    });
     pikachu = new Pokemon({
       name: 'Pikachu',
       level: 70,
@@ -17,10 +20,19 @@ describe('Pokemon logic model', () => {
       specDefStat: 50,
       maxHealth: 30,
       attacks: [
-        new Attack('Eclair', 40),
+        new Attack({
+          name: 'Eclair',
+          basePower: 40
+        }),
         charge,
-        new Attack('Tonnerre', 60),
-        new Attack('Rugissement', 1)
+        new Attack({
+          name: 'Tonnerre',
+          basePower: 60
+        }),
+        new Attack({
+          name: 'Rugissement',
+          basePower: 1
+        })
       ],
       abilities: [
         Ability.Tailwind
@@ -50,6 +62,11 @@ describe('Pokemon logic model', () => {
   it('Pikachu get 2nd attack : Charge', () => {
     let attack = pikachu.getRandomAttack();
     expect(attack).toBe(charge);
+  });
+
+  it('should return a Pikachu with full health', () => {
+    pikachu.health = 3;
+    expect(pikachu.reinit().health).toBe(30);
   });
 
   afterEach( () => {
