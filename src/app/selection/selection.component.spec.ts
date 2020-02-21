@@ -15,6 +15,7 @@ import { HealthBarComponent } from '../health-bar/health-bar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DateToStringPipe } from '../shared/pipes/date-to-string.pipe';
 import { CodeToStringPipe } from '../shared/pipes/code-to-string.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('SelectionComponent', () => {
   let component: SelectionComponent;
@@ -40,6 +41,7 @@ describe('SelectionComponent', () => {
       imports: [
         HttpClientTestingModule,
         MatProgressBarModule,
+        MatDialogModule,
         RouterTestingModule.withRoutes(routes)
       ]
     })
