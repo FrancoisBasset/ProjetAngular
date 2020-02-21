@@ -36,8 +36,9 @@ export class LogService {
 	  this.log.push(`${attacker} remporte le combat`);*/
 
 	  this.log.push({
-		'attacker': attacker,
-		'target': target,
+		'attackerName': attacker.name,
+		'attackerColor': attacker.color,
+		'targetName': target.name,
 		'end': true
 	});
   }
