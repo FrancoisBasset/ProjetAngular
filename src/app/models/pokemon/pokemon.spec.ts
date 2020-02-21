@@ -66,7 +66,8 @@ describe('Pokemon logic model', () => {
 
   it('should return a Pikachu with full health', () => {
     pikachu.health = 3;
-    expect(pikachu.reinit().health).toBe(30);
+    pikachu.reinit();
+    expect(pikachu.health).toBe(30);
   });
 
   afterEach( () => {

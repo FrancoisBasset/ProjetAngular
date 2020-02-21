@@ -96,11 +96,8 @@ export class Pokemon {
         }
     }
 
-    public reinit (): Pokemon {
-        let newPokemon: Pokemon = new Pokemon();
-        Object.assign(newPokemon, this);
-        newPokemon.health = this.maxHealth;
-        return newPokemon;
+    public reinit (): void {
+        this.health = this.maxHealth;
     }
 
     public getRandomAttack (): Attack {

@@ -76,7 +76,7 @@ export default class GameService {
 
     public replay(): void {
       console.log('réinit des pokémons', this.pokemonA.reinit())
-      this.pokemonA = this.pokemonA.reinit();
-      this.pokemonB = this.pokemonB.reinit();
+      this.pokemonA.reinit();
+      this.pokemonB.reinit();
     }
 }
