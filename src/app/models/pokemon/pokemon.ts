@@ -81,8 +81,7 @@ export class Pokemon {
             items,
             color: '',
             frontSpriteUrl: dto.sprites.front_default,
-            backSpriteUrl: dto.sprites.back_default,
-            basePower: dto.base_experience
+            backSpriteUrl: dto.sprites.back_default
         });
 
     }
