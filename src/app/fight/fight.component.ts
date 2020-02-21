@@ -41,11 +41,11 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
       this.gameService.play();
     }
 
-    if (this.on)
-      this.actionBtnSrc =  "../../assets/images/shared/PAUSE.png"
-    else
-      this.actionBtnSrc = "../../assets/images/shared/FIGHT.png"
-  }
+      if (this.on)
+        this.actionBtnSrc =  "../../assets/images/shared/PAUSE.png"
+      else
+        this.actionBtnSrc = "../../assets/images/shared/FIGHT.png"
+    }
 
   ngOnDestroy(): void {
     this.gameService.pause();
@@ -53,9 +53,9 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   get pokemonA_animation() {
     if (this.gameService.pokemonA)
-      if (this.gameService.pokemonA.test) {
+      if (this.gameService.pokemonA.animate) {
         setTimeout(() => {
-          this.gameService.pokemonA.test = false
+          this.gameService.pokemonA.animate = false
         }, 100)
         return true
       }
@@ -65,9 +65,9 @@ export class FightComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   get pokemonB_animation() {
     if (this.gameService.pokemonB)
-      if (this.gameService.pokemonB.test) {
+      if (this.gameService.pokemonB.animate) {
         setTimeout(() => {
-          this.gameService.pokemonB.test = false
+          this.gameService.pokemonB.animate = false
         }, 100)
         return true
       }

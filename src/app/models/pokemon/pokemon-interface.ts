@@ -19,5 +19,5 @@ export class PokemonInterface {
     health?: number;
     paralyzed?: boolean;
     basePower?: number;
-    test?: boolean;
+    animate?: boolean;
 }
