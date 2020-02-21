@@ -27,16 +27,12 @@ export class SelectionComponent implements OnInit {
 
   onPokemonClick(pokemon: Pokemon): void {
 	  if (this.pokemonA == null && this.pokemonB == null) {
-		  //console.log('A: ' + pokemon.name);
 		  this.pokemonA = pokemon;
 	  } else if (this.pokemonA != null && this.pokemonA.name == pokemon.name) {
-		  //console.log('A: null');
 		  this.pokemonA = null;
 		} else if (this.pokemonA != null && this.pokemonB == null) {
-		  //console.log('B: ' + pokemon.name);
 		  this.pokemonB = pokemon;		  
 	  }  else if (this.pokemonB.name == pokemon.name) {
-		  //console.log('B: Null');
 		  this.pokemonB = null;
 		} else if (this.pokemonB != null && this.pokemonA == null) {
 			this.pokemonA = pokemon;
@@ -59,8 +55,8 @@ export class SelectionComponent implements OnInit {
 
   openCreation(): void {
 	const dialogRef = this.dialog.open(CreationComponent, {
-		width: '50%',
-		height: '50%'
+		width: '30%',
+		height: '80%'
 	  });
 
 	  dialogRef.afterClosed().subscribe(r => {
@@ -78,10 +74,8 @@ export class SelectionComponent implements OnInit {
 			  Item.ClawFossil
 		  ];
 		  newPokemon.attacks = [
-			  //new Attack('', 5)
 		  ];
 
-		  //console.log(newPokemon.getRandomAttack());
 		  
 		  this.allPokemons.push(newPokemon);
 		  this.creationService.newPokemons.push(newPokemon);

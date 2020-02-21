@@ -1,29 +1,32 @@
-<form (submit)="createPokemon()" novalidate>
-	<label>Nom : </label>
-	<input [(ngModel)]="creationService.newPokemon.name" type="text" [ngModelOptions]="{standalone: true}" /><br>
-
-	<label>Niveau : </label>
-	<input [(ngModel)]="creationService.newPokemon.level" type="number" max="4" [ngModelOptions]="{standalone: true}" /><br>
-
-	<label>Vitesse : </label>
-	<input [(ngModel)]="creationService.newPokemon.speed" type="number" max="4" [ngModelOptions]="{standalone: true}" /><br><br>
-
-	<label>Image de face : </label>
-	<input [(ngModel)]="creationService.newPokemon.frontSpriteUrl" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
-	<img src="{{creationService.newPokemon.frontSpriteUrl}}" width="50px" /><br>
-
-	<label>Image de dos : </label>
-	<input [(ngModel)]="creationService.newPokemon.backSpriteUrl" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
-	<img src="{{creationService.newPokemon.backSpriteUrl}}" width="50px"/><br>
-
-	<label>OffStat : </label>
-	<input [(ngModel)]="creationService.newPokemon.offStat" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
-
-	<label>DefStat : </label>
-	<input [(ngModel)]="creationService.newPokemon.defStat" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
-
-	<label>Santé max : </label>
-	<input [(ngModel)]="creationService.newPokemon.maxHealth" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
-
-	<button type="submit">OK</button>
-</form>
+<div class="test">
+	<h1>Création d'un Pokémon</h1>
+	<form (submit)="createPokemon()" novalidate>
+		<label>Nom : </label>
+		<input [(ngModel)]="creationService.newPokemon.name" type="text" [ngModelOptions]="{standalone: true}" /><br>
+		<br/>
+		<label>Niveau : </label>
+		<input [(ngModel)]="creationService.newPokemon.level" type="number" max="4" [ngModelOptions]="{standalone: true}" /><br>
+		<br/>
+		<label>Vitesse : </label>
+		<input [(ngModel)]="creationService.newPokemon.speed" type="number" max="4" [ngModelOptions]="{standalone: true}" /><br><br>
+		<br/>
+		<label>Image de face : </label>
+		<input [(ngModel)]="creationService.newPokemon.frontSpriteUrl" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
+		<img src="{{creationService.newPokemon.frontSpriteUrl}}" width="50px" /><br>
+		<br/>
+		<label>Image de dos : </label>
+		<input [(ngModel)]="creationService.newPokemon.backSpriteUrl" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
+		<img src="{{creationService.newPokemon.backSpriteUrl}}" width="50px"/><br>
+		<br/>
+		<label>OffStat : </label>
+		<input [(ngModel)]="creationService.newPokemon.offStat" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
+		<br/>
+		<label>DefStat : </label>
+		<input [(ngModel)]="creationService.newPokemon.defStat" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
+		<br/>
+		<label>Santé max : </label>
+		<input [(ngModel)]="creationService.newPokemon.maxHealth" type="text" [ngModelOptions]="{standalone: true}" /><br><br>
+		<br/>
+		<button type="submit">Créer</button>
+	</form>
+</div>
