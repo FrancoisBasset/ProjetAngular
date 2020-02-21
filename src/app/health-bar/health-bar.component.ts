@@ -7,15 +7,15 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./health-bar.component.scss']
 })
 export class HealthBarComponent implements OnInit {
-  @Input() health: number;
-  @Input() maxHealth: number;
+  @Input() health: number = 45;
+  @Input() maxHealth: number = 100;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  get value() {
+  get value(): number {
     if ( this.health && this.maxHealth )
       return this.health * 100 / this.maxHealth;
     return 0;
@@ -29,4 +29,9 @@ export class HealthBarComponent implements OnInit {
     return 'primary';
   }
 
+  // pour tests
+  set value (val: number) {
+    this.health = val;
+    this.maxHealth = 100;
+  }
 }

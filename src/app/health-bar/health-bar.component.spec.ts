@@ -22,4 +22,9 @@ describe('HealthBarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('value should be 30', () => {
+    component.value = 30;
+    expect(fixture.nativeElement.innerHTML).toContain('30');
+  });
 });
