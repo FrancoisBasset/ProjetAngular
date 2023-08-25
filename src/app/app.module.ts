@@ -31,9 +31,6 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/d
     CreationComponent,
     DateToStringPipe
   ],
-  entryComponents: [
-	  CreationComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
